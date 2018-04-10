@@ -1,0 +1,198 @@
+//====================================================
+// Import Variables.less
+@import "variables.less";
+// ====================================================
+
+
+#orderBtn{
+	float: right;
+}
+
+#oderIdBtn{
+	border-radius: 3px;
+    color: rgb(0,150,136);
+    margin: 0px 0 5px 0;
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    border: 1px solid rgba(0, 150, 136, 0.22);
+    line-height: 24px;
+    background-color: rgb(178, 223, 219);
+    outline: 0;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+
+    &.selected{
+    	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.0);	
+    }
+    .editOrder{
+		border-right: 1px solid rgba(0, 150, 136, 0.22);
+		outline:0;
+		
+		 
+    }
+    .saveOrder{}
+	.saveOrder, .editOrder{
+		margin: 0px;
+		border-radius: 0px;
+		span{font-family: @robo-bold;}
+		outline:0;
+		&.selected{
+    	
+    	background-color: rgba(0, 150, 136, 0.22);
+    	
+    }
+	}
+
+	
+    
+
+
+    span b{
+    	font-family: @robo-bold;
+    }
+    
+    i{    
+    	    float: right;
+    position: relative;
+    top: 5px;
+    margin: 0 10px;
+    }
+}
+
+.editMenu{
+		    height: 50px;
+	    border: 1px #BDBDBD solid;
+	    position: relative;
+	    margin: 0 5px 10px 5px;
+	    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+	    border-radius: 3px;
+	    .title{
+	    	padding: 15px;
+	    	color: #757575;
+	    	float: left;
+	    	font-family: @robo-bold;
+	    }
+
+	    .acceptBtn, .rejectBtn, .editBtn{
+			position: relative;
+			color: #000;
+			background-color: #faaa18;
+			float:right;
+			margin: 5px 5px 0 10px;
+			min-width: 55px;
+			span{
+				font-family: @robo-bold;
+			}
+			&.blue{
+				background-color: rgb(23, 186, 163);
+    			color: #00776C;
+			}
+	    }
+	    .rejectBtn{
+			background-color: rgba(0,0,0,0.26);
+	    }
+    }
+
+#ordersList{
+    min-height: 300px;
+    .order{
+    	background-color: rgba(0,0,0,0.26);
+    	background-size: cover;
+        background-repeat: no-repeat;
+        outline:0;
+        .dim {
+            background-color: rgba(0,0,0,0.26);
+            position: absolute;
+            width: 110%;
+            height: 110%;
+            margin: -10px;
+        }
+        .count{
+			font-size: 130px;
+			position: relative;
+			right: -20px;
+			color: rgba(0,0,0,0.1);
+			text-align: right;
+			width: 100%;
+			display: inline-block;
+			top: -24px;
+        }
+        .name{
+        	
+        	    max-height: 40px;
+    line-height: 20px;
+    font-size: 16px;
+    font-family: @robo-bold;
+        color: rgb(66,66,66);
+        }
+        .table{
+			//background-color: rgba(0,0,0,0.12);
+			background-color: transparent;
+    		color: rgb(117,117,117);
+        }
+        .num{
+			position: absolute;
+			color: rgb(117,117,117);
+
+			float: left;
+        }
+        .date{
+			position: relative;
+			top:20px;
+			font-family: @robo-med;
+			color: rgb(117,117,117);
+			float: left;    font-size: 12px;
+        }
+    }
+    .noContent{
+    	color: rgba(0,0,0,0.1);
+    }
+
+    
+
+    #orderItems{
+		position: relative;
+	    background: #5f9ea0;
+	    display: block;
+	    clear: both;
+	    margin: 0 5px 10px 5px;
+	    background-color: #f0f0f0;
+	    border-radius: 3px;
+	    border: 1px rgba(0,0,0,0.12) solid;
+
+	    
+	    
+
+	    .item{
+	    	border-bottom: 1px rgba(0,0,0,0.12) solid;
+	    	padding: 15px 10px;
+	    	.name, .price{
+	    		margin: 0px;
+	    	}
+	    	.name{
+	    		margin: 0px;
+	    	}
+	    	.price{
+	    		margin: 0px;
+	    	}
+	    	&:last-child{
+	    		border-bottom: none;
+	    	}
+	    }
+    }
+}
+
+.orderEditForm {
+	editMenu{
+		margin-bottom:  30px;
+	}
+    form {
+        margin: 0px 5px 5px 5px;
+        md-icon,
+        md-input-container.md-icon-float>label {
+            color: rgb(117, 117, 117);
+        }
+    }
+}
+
+

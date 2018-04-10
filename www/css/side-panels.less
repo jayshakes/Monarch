@@ -1,0 +1,145 @@
+//====================================================
+// Import Variables.less
+@import "variables.less";
+// ====================================================
+
+.rightPanel-button-wrap {
+    float: right;
+
+    #rightPanel-open {
+        i {
+            position: relative;
+            top: 3px;
+        }
+    }
+}
+
+#rightPanel {
+    .md-toolbar {
+        height: 40px;
+        min-height: 40px;
+    }
+
+    .function {
+        background-size: 120%;
+        background-repeat: no-repeat;
+        height: 100px;
+        width: 117px;
+        display: inline-block;
+        margin: 10px 10px 0px 8px;
+        border-radius: 4px;
+        overflow: hidden;
+        padding: 10px;
+        position: relative;
+        background-color: #303030;
+        color: #F44336;
+        text-align: center;
+        text-decoration: none;
+        &hover { text-decoration: none; }
+        .name {
+            font-size: 12px;
+            font-family: @robo-bold;
+            margin: 0px;
+        }
+        i { width: 100%; }
+    }
+}
+
+
+
+#leftPanel {
+    
+    .exit {
+        margin: 15px;
+        font-size: 14px;
+        width: 50px;
+        background-color: white;
+        display: inline-block;
+        position: absolute;
+        top: 48px;
+        right: 0px;
+        border-radius: 4px;
+        text-align: center;
+        height: 35px;
+        i {
+            position: relative;
+            top: 5px;
+        }
+    }
+    .header {
+        min-height: 110px;
+        #menuLogo {
+            height: 32px;
+            float: left;
+            display: inline-block;
+            text-align: left;
+            width: 100px;
+            margin: 5px 15px 15px 15px;
+        }
+        .user-name {
+            font-size: 14px;
+            margin: 0px;
+            border-top: 1px rgba(0, 0, 0, 0.06) solid;
+            padding: 15px;
+        }
+    }
+    
+    .closeBtn {
+        position: fixed;
+        top: 0px;
+        z-index: 200;
+        right: 0px;
+        color: rgba(0, 0, 0, 0.12);
+        min-width: 30px;
+        i {
+            left: 0px;
+            text-align: right;
+            float: right;
+        }
+    }
+    .menu-item {
+        float: left;
+        text-align: center;
+        padding: 10px;
+        width:100%;
+        
+        .menu--btn {
+            //background-color: darken(@brand-primary, 10%);
+            width: 100%;
+            margin: 0px 0px 10px 0px;
+            padding: 15px 0px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+              display: inline-block;
+            
+            &:hover, &:active, &:focus{
+                border:none;
+                outline:0;
+                text-decoration:none;
+            }
+            .menu--icon {
+                font-size: 30px;
+                color: rgb(23, 186, 163);
+                position: relative;
+                top: 10px;
+                 
+            }
+            .menu--name {
+                font-size: 15px;
+                margin: 0px;
+                padding: 0 30px;
+                line-height: 20px;
+                white-space: normal;
+                color:rgb(23, 186, 163);
+                
+            }
+        }
+        .menu--btn.disabled {
+            .menu--icon {
+                color: lighten(@gray-base, 60%);
+            }
+            .menu--name { color: lighten(@gray-base, 50%); }
+        }
+    }
+}
+ 
+

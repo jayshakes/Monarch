@@ -1,0 +1,532 @@
+<!--=================================================================================
+=====================================================================================
+CREATE SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="prodActions" class="actionBtn create">
+      <md-radio-button value="CREATE" ng-click="setList(1)">CREATE</md-radio-button>
+</md-radio-group>
+
+<!-- {"Item_ID":1,"Item_Code":"1","Item_Name":"Misc","Item_Name2":"","Img":"","Amount":12.99,"Barcode":"998877665544"} -->
+
+<section ng-if="prodActions == 'CREATE'" class="action-wrap" id="create">
+    <!--  <p> PRODUCT CREATE</p> -->
+      <div class="form">
+
+        <md-content md-theme="default">
+       
+            <h4 class="form-title" >CREATE TEMPLATE</h4>
+            <article  id="detailBtns" class="clearfix" >
+                <md-button class="detailBtn" ng-click="addDetailsItem(1)">
+                    <i class="material-icons md-18 menu-icon">&#xE145;</i>SINGLE SELECT
+                </md-button>
+                <md-button class="detailBtn" ng-click="addDetailsItem(2)">
+                    <i class="material-icons md-18 menu-icon">&#xE145;</i>MULTI SELECT
+                </md-button>
+                <md-button class="detailBtn" ng-click="addDetailsItem(3)">
+                    <i class="material-icons md-18 menu-icon">&#xE145;</i>COUNTER
+                </md-button>
+            </article>
+             
+            
+            <div class="formScroll">
+            <article class="clearfix ">
+
+                <div class="detailBoxes" ng-repeat="itemDetail in templateDetailslist">
+                <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<SINGLE / RADIO >>>>>>>>>>>>>>>>>>>>>>>> -->
+                    <div class="detailBox clearfix" ng-if="itemDetail.Type == 1">
+                        <div class="boxHead clearfix">
+                            <md-button class="state" ng-click="boxId = !boxId">
+                                <i ng-show="boxId" class="material-icons md-18 menu-icon">&#xE5CE;</i>
+                                <i ng-show="!boxId" class="material-icons md-18 menu-icon">&#xE5CF;</i>  
+                            </md-button>
+                            <h4 class="title">SINGLE SELECT :  {{$index + 1}}</h4>
+                            
+                            <md-button aria-label="menu" ng-click="removeDetailsItem(itemDetail)" class="close md-button md-default-theme">
+                                <i class=" material-icons md-18">close</i>
+                            </md-button>
+                             <md-button class="detailBtn" ng-click="addDetailsBtn(itemDetail)" >
+                                <i class="material-icons md-18 menu-icon">&#xE145;</i>ADD BUTTON
+                            </md-button>
+                        </div>
+
+
+                        <div class="boxContent clearfix" ng-init="boxId = true" ng-show="boxId" >
+                            <div class="clearfix boxContent-head">
+                            
+                                <div class="col-sm-6 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Option name</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Title" name="itemDetail.Title" type="text" required>
+                                </md-input-container>
+                                
+                                </div>
+                                <div class="col-sm-6 npLR">
+                                <div class="selectSetter">
+                                    <select ng-model="detail.default" data-ng-options="detail.name + ' Button ' + (itemDetail.Options.indexOf(detail) + 1) for detail in itemDetail.Options" ng-change="itemDetail.Default = $index">
+                                        <option value="" disabled hidden >Please select a default</option>
+                                    </select>
+                                    <hr/>
+                                </div>
+                                </div>
+                                
+                                </div>
+                            <div class="clearfix boxContent-option" ng-repeat="detail in itemDetail.Options">
+                                <div class="clearfix boxContent-btn">
+                                    <h5 class="title">Button : {{$index + 1}}</h5>
+                                    <md-button aria-label="menu" ng-click="removeDetailsBtn(itemDetail,detail)" class="close md-button md-default-theme">
+                                        <i class=" material-icons md-18">close</i>
+                                    </md-button>
+                                </div>
+                                <div class="col-xs-6 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Button name - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="detail.name" name="itemDetail.Min" type="text" required>
+                                </md-input-container>
+                                </div>
+                                <div class="col-xs-6 npLR">
+                               <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Button price - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="detail.amount" name="itemDetail.Max" type="number" required>
+                                </md-input-container>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<MULTI>>>>>>>>>>>>>>>>>>>>>>>> -->
+                    <div class="detailBox clearfix" ng-if="itemDetail.Type == 2">
+                        <div class="boxHead clearfix">
+                            <md-button class="state" ng-click="boxId = !boxId">
+                                <i ng-show="boxId" class="material-icons md-18 menu-icon">&#xE5CE;</i>
+                                <i ng-show="!boxId" class="material-icons md-18 menu-icon">&#xE5CF;</i>  
+                            </md-button>
+                            <h4 class="title">MULTI SELECT : {{$index + 1}}</h4>
+                            
+                            <md-button aria-label="menu" ng-click="removeDetailsItem(itemDetail)" class="close md-button md-default-theme">
+                                <i class=" material-icons md-18">close</i>
+                            </md-button>
+                             <md-button class="detailBtn" ng-click="addDetailsBtn(itemDetail)" >
+                                <i class="material-icons md-18 menu-icon">&#xE145;</i>ADD BUTTON
+                            </md-button>
+                        </div>
+
+
+                        <div class="boxContent clearfix" ng-init="boxId = true" ng-show="boxId" >
+                            <div class="clearfix boxContent-head">
+                                <div class="col-sm-6 npLR">
+                                    <md-input-container class="md-icon-float">
+                                        <!-- Use floating label instead of placehoasdlder -->
+                                        <label>Option name</label>
+                                        <md-icon class="material-icons">label_outline</md-icon>
+                                        <input data-ng-model="itemDetail.Title" name="itemDetail.Title" type="text" required>
+                                    </md-input-container>
+                                
+                                </div>
+                                <div class="col-sm-6 npLR">
+                                <div class="selectSetter">
+                                     <select ng-model="detail.default" data-ng-options="detail.name + ' Button ' + (itemDetail.Options.indexOf(detail) + 1) for detail in itemDetail.Options" ng-change="itemDetail.Default = $index">
+                                        <option value="" disabled hidden >Please select a default</option>
+                                    </select>
+                                    <hr/>
+                                </div>
+                                </div>
+
+                                </div>
+
+
+                            <div class="clearfix boxContent-option" ng-repeat="detail in itemDetail.Options">
+                                <div class="clearfix boxContent-btn">
+                                    <h5 class="title">Button : {{$index + 1}}</h5>
+                                    <md-button aria-label="menu" ng-click="removeDetailsBtn(itemDetail,detail)" class="close md-button md-default-theme">
+                                        <i class=" material-icons md-18">close</i>
+                                    </md-button>
+                                </div>
+                                <div class="col-xs-6 col-md-6 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Button name - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="detail.name" name="itemDetail.Min" type="text" required>
+                                </md-input-container>
+                                </div>
+                                <div class="col-xs-6 col-md-6 npLR">
+                               <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Button price - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="detail.amount" name="itemDetail.Max" type="number" min="0" required>
+                                </md-input-container>
+                            </div>
+    
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<COUNTER>>>>>>>>>>>>>>>>>>>>>>>> -->
+                    <div class="detailBox clearfix" ng-if="itemDetail.Type == 3">
+                        <div class="boxHead clearfix">
+                            <md-button class="state" ng-click="boxId = !boxId">
+                                <i ng-show="boxId" class="material-icons md-18 menu-icon">&#xE5CE;</i>
+                                <i ng-show="!boxId" class="material-icons md-18 menu-icon">&#xE5CF;</i>  
+                            </md-button>
+                            <h4 class="title">COUNTER :  {{$index + 1}}</h4>
+                            <md-button aria-label="menu" ng-click="removeDetailsItem(itemDetail)" class="close md-button md-default-theme">
+                                <i class=" material-icons md-18">close</i>
+                            </md-button>
+                        </div>
+                        <div class="boxContent clearfix" ng-init="boxId = true" ng-show="boxId" >
+                            <div class="col-sm-4 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Option name - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Title" name="itemDetail.Title" type="text" required>
+                                </md-input-container>
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Price - required</label>
+                                    <md-icon class="material-icons">attach_money</md-icon>
+                                    <input data-ng-model="itemDetail.Amount" name="itemDetail.Amount" type="text">
+                                </md-input-container>
+                            </div>
+
+                            <div class="col-sm-4 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Minimum</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Min" name="itemDetail.Min" min="0" type="number">
+                                </md-input-container>
+                               <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Maximum - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Max" name="itemDetail.Max" min="0" type="number">
+                                </md-input-container>
+                            </div>
+
+                            <div class="col-sm-4 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Increment Step</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Step" name="itemDetail.Step" min="0" type="number">
+                                </md-input-container>
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Unit(e.g 'grams','liters' etc)</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Unit" name="itemDetail.Unit" type="text">
+                                </md-input-container>
+                               
+                            </div>
+
+                        </div>
+                    </div>
+                
+                </div>
+            </article>
+        </div>
+        </md-content>
+        <div class="actionBtn--wrap">
+            <!-- <md-button class="md-raised formBtn" type="button" ng-click="detailsItemReset()">
+                <i class="material-icons md-18 menu-icon">clear</i>CANCEL
+            </md-button> -->
+            <md-button class="md-raised formBtn" ng-click="createDetailsSubmit(createDetailsForm)">
+                <i class="material-icons md-18 menu-icon">done</i>SAVE
+            </md-button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!--=================================================================================
+=====================================================================================
+EDIT SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="prodActions" class="actionBtn edit">
+    <md-radio-button value="EDIT" ng-click="setList(2)">EDIT </md-radio-button>
+</md-radio-group>
+
+<section ng-if="prodActions == 'EDIT'"class="action-wrap" id="edit">
+
+   <div class="form">
+
+        <md-content md-theme="default">
+            <h4 class="form-title" ng-if="!selectedDetailsItem">SELECT AN ITEM TO EDIT</h4>
+            <h4 class="form-title" ng-if="selectedDetailsItem">ADD AN OPTION</h4>
+            <article ng-if="selectedDetailsItem" id="detailBtns" class="clearfix" >
+                <md-button class="detailBtn" ng-click="addDetailsItem(1)">
+                    <i class="material-icons md-18 menu-icon">&#xE145;</i>SINGLE SELECT
+                </md-button>
+                <md-button class="detailBtn" ng-click="addDetailsItem(2)">
+                    <i class="material-icons md-18 menu-icon">&#xE145;</i>MULTI SELECT
+                </md-button>
+                <md-button class="detailBtn" ng-click="addDetailsItem(3)">
+                    <i class="material-icons md-18 menu-icon">&#xE145;</i>COUNTER
+                </md-button>
+            </article>
+             
+            <article ng-if="!selectedDetailsItem" class="clearfix list" >
+                <md-button ng-repeat="product in allProducts" ng-click="setSelectedDetails(product)" class="col-sma-12">
+                    <b>{{product.Item_Name}}</b> -
+                    ${{product.Amount}}
+                </md-button>
+            </article>
+            <div class="formScroll">
+            <article  class="clearfix ">
+
+                <div class="detailBoxes" ng-repeat="itemDetail in currentList">
+                <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<SINGLE / RADIO >>>>>>>>>>>>>>>>>>>>>>>> -->
+                    <div class="detailBox clearfix" ng-if="itemDetail.Type == 1">
+                        <div class="boxHead clearfix">
+                            <md-button class="state" ng-click="boxId = !boxId">
+                                <i ng-show="boxId" class="material-icons md-18 menu-icon">&#xE5CE;</i>
+                                <i ng-show="!boxId" class="material-icons md-18 menu-icon">&#xE5CF;</i>  
+                            </md-button>
+                            <h4 class="title">SINGLE SELECT :  {{$index + 1}}</h4>
+                            
+                            <md-button aria-label="menu" ng-click="removeDetailsItem(itemDetail)" class="close md-button md-default-theme">
+                                <i class=" material-icons md-18">close</i>
+                            </md-button>
+                             <md-button class="detailBtn" ng-click="addDetailsBtn(itemDetail)" >
+                                <i class="material-icons md-18 menu-icon">&#xE145;</i>ADD BUTTON
+                            </md-button>
+                        </div>
+
+
+                        <div class="boxContent clearfix" ng-init="boxId = true" ng-show="boxId" >
+                            <div class="clearfix boxContent-head">
+                                <div class="col-sm-12 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Option name - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Title" name="itemDetail.Title" type="text" required>
+                                </md-input-container>
+                                
+                                </div>
+
+
+                                </div>
+
+
+                            <div class="clearfix boxContent-option" ng-repeat="detail in itemDetail.Options">
+                                <div class="clearfix boxContent-btn">
+                                    <h5 class="title">Button : {{$index + 1}}</h5>
+                                    <md-button aria-label="menu" ng-click="removeDetailsBtn(itemDetail,detail)" class="close md-button md-default-theme">
+                                        <i class=" material-icons md-18">close</i>
+                                    </md-button>
+                                </div>
+                                <div class="col-xs-6 col-md-4 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Button name - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="detail.name" name="itemDetail.Min" type="text" required>
+                                </md-input-container>
+                                </div>
+                                <div class="col-xs-6 col-md-4 npLR">
+                               <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Button price - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="detail.amount" name="itemDetail.Max" type="number" required>
+                                </md-input-container>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<MULTI>>>>>>>>>>>>>>>>>>>>>>>> -->
+                    <div class="detailBox clearfix" ng-if="itemDetail.Type == 2">
+                        <div class="boxHead clearfix">
+                            <md-button class="state" ng-click="boxId = !boxId">
+                                <i ng-show="boxId" class="material-icons md-18 menu-icon">&#xE5CE;</i>
+                                <i ng-show="!boxId" class="material-icons md-18 menu-icon">&#xE5CF;</i>  
+                            </md-button>
+                            <h4 class="title">MULTI SELECT : {{$index + 1}}</h4>
+                            
+                            <md-button aria-label="menu" ng-click="removeDetailsItem(itemDetail)" class="close md-button md-default-theme">
+                                <i class=" material-icons md-18">close</i>
+                            </md-button>
+                             <md-button class="detailBtn" ng-click="addDetailsBtn(itemDetail)" >
+                                <i class="material-icons md-18 menu-icon">&#xE145;</i>ADD BUTTON
+                            </md-button>
+                        </div>
+
+
+                        <div class="boxContent clearfix" ng-init="boxId = true" ng-show="boxId" >
+                            <div class="clearfix boxContent-head">
+                                <div class="col-sm-12 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Option name - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Title" name="itemDetail.Title" type="text" required>
+                                </md-input-container>
+                                
+                                </div>
+
+
+                                </div>
+
+
+                            <div class="clearfix boxContent-option" ng-repeat="detail in itemDetail.Options">
+                                <div class="clearfix boxContent-btn">
+                                    <h5 class="title">Button : {{$index + 1}}</h5>
+                                    <md-button aria-label="menu" ng-click="removeDetailsBtn(itemDetail,detail)" class="close md-button md-default-theme">
+                                        <i class=" material-icons md-18">close</i>
+                                    </md-button>
+                                </div>
+                                <div class="col-xs-6 col-md-4 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Button name - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="detail.name" name="itemDetail.Min" type="text" required>
+                                </md-input-container>
+                                </div>
+                                <div class="col-xs-6 col-md-4 npLR">
+                               <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Button price - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="detail.amount" name="itemDetail.Max" type="number" required>
+                                </md-input-container>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<COUNTER>>>>>>>>>>>>>>>>>>>>>>>> -->
+                    <div class="detailBox clearfix" ng-if="itemDetail.Type == 3">
+                        <div class="boxHead clearfix">
+                            <md-button class="state" ng-click="boxId = !boxId">
+                                <i ng-show="boxId" class="material-icons md-18 menu-icon">&#xE5CE;</i>
+                                <i ng-show="!boxId" class="material-icons md-18 menu-icon">&#xE5CF;</i>  
+                            </md-button>
+                            <h4 class="title">COUNTER :  {{$index + 1}}</h4>
+                            <md-button aria-label="menu" ng-click="removeDetailsItem(itemDetail)" class="close md-button md-default-theme">
+                                <i class=" material-icons md-18">close</i>
+                            </md-button>
+                        </div>
+                        <div class="boxContent clearfix" ng-init="boxId = true" ng-show="boxId" >
+                            <div class="col-sm-4 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Option name - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Title" name="itemDetail.Title" type="text" required>
+                                </md-input-container>
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Price - required</label>
+                                    <md-icon class="material-icons">attach_money</md-icon>
+                                    <input data-ng-model="itemDetail.Amount" name="itemDetail.Amount" type="text">
+                                </md-input-container>
+                            </div>
+
+                            <div class="col-sm-4 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Minimum</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Min" name="itemDetail.Min" type="number">
+                                </md-input-container>
+                               <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Maximum - required</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Max" name="itemDetail.Max" type="number">
+                                </md-input-container>
+                            </div>
+
+                            <div class="col-sm-4 npLR">
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Increment Step</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Step" name="itemDetail.Step" type="number">
+                                </md-input-container>
+                                <md-input-container class="md-icon-float">
+                                    <!-- Use floating label instead of placehoasdlder -->
+                                    <label>Unit(e.g 'grams','liters' etc)</label>
+                                    <md-icon class="material-icons">label_outline</md-icon>
+                                    <input data-ng-model="itemDetail.Unit" name="itemDetail.Unit" type="text">
+                                </md-input-container>
+                               
+                            </div>
+
+                        </div>
+                    </div>
+                
+                </div>
+            </article>
+        </div>
+        </md-content>
+        <div class="actionBtn--wrap">
+            <md-button class="md-raised formBtn" type="button" ng-click="detailsItemReset()">
+                <i class="material-icons md-18 menu-icon">clear</i>CANCEL
+            </md-button>
+            <md-button class="md-raised formBtn" ng-click="createDetailsSubmit(createDetailsForm)">
+                <i class="material-icons md-18 menu-icon">done</i>SAVE
+            </md-button>
+        </div>
+    </div>
+
+</section>
+
+
+<!--=================================================================================
+=====================================================================================
+REMOVE SECTION
+==================================================================================-->
+<!-- <md-radio-group ng-model="prodActions" class="actionBtn remove">
+    <md-radio-button value="REMOVE">REMOVE</md-radio-button>
+</md-radio-group>
+
+    <section ng-if="prodActions == 'REMOVE'" class="action-wrap" id="remove">
+    <form name="removeItemForm" ng-submit="removeItemSubmit(removeItemForm)" validate role="form">
+        <md-content md-theme="default">
+        
+            <div class="col-sm-12 npLR">
+                <h2 class="title">Please scroll and select an item to delete</h2>
+                <div class="removeItem clearfix" ng-repeat="product in allProducts">
+                    <md-checkbox ng-change='removeItemSet(product, state)' ng-model="state.done" name="{{product.Item_Name}}" aria-label="Checkbox 1">
+                        <h2 class="name"><b>${{product.Amount}}</b> {{product.Item_Name}} </h2>
+                    </md-checkbox>
+                    <p class="color col-xs-6 col-sm-3">Color <span style="background-color:{{product.Color}}"> {{product.Color}} </span></p>
+                    <p class="img col-xs-6 col-sm-3">Image <b>{{product.Img}}</b> <img ng-src="{{product.Img}}" /></p>
+                    <p class="barcode col-xs-6 col-sm-3">Barcode <b>{{product.Barcode}}</b></p>
+                    <p class="tab col-xs-6 col-sm-3">Tab <b>{{product.Tab}}</b> </p>
+                    <p class="notes col-xs-12 col-sm-12">Notes <b>{{product.Notes}}</b> </p>
+                </div>
+            </div>
+        </md-content>
+        <div class="actionBtn--wrap">
+
+            <md-button class="md-raised formBtn" type="submit"> <i class="material-icons md-18 menu-icon">done</i>Remove</md-button>
+        </div>
+</form>
+</section> -->
+
+
+
+

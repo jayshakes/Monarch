@@ -1,0 +1,971 @@
+//====================================================
+// Import Variables.less
+@import "variables.less";
+// ====================================================
+
+/* ====================================================
+PAYMENT PAGE
+======================================================*/
+ md-input-container:not(.md-input-has-value) input:not(:focus){
+     z-index:1; 
+ }
+md-input-container.md-icon-float > label{ z-index:0;}
+.md-select-label *:first-child{position:absolute;z-index:0;}
+.md-select-label .md-select-icon{width:100%;z-index:1; }
+#inventoryPage #sectionType {
+    position: absolute;
+    top: -15px;
+    width: 100%;
+    .typeBtn {
+        padding-top: 20px;
+        color: #025046;
+        float: left;
+        min-width: 50px;
+        margin: 15px 10px 0px 0px;
+        padding: 10px 5px;
+        border-radius: 3px;
+        background-color: #01A38D;
+        &:hover,&:active,&:focus{
+            border: none;
+            outline: none;
+        }
+        .md-container {
+            display: none;
+        }
+        .type-icon {
+            float: left;
+            margin-right: 5px;
+        }
+        p {
+            display: none;
+            margin: 0px;
+            float: left;
+            line-height: 23px;
+        }
+    }
+    .typeBtn.md-checked {
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    }
+    .info {
+        color: darken(@primaryColor, 20%);
+        font-size: 14px;
+        width: 130px;
+        float: left;
+        line-height: 15px;
+        padding: 8px 0px 0px 0px;
+        display: inline-block;
+        margin: 12px 0px;
+    }
+}
+
+
+//======================================================================================================================================================
+//======================================================================================================================================================
+// COMMON TO THIS PAGE
+//======================================================================================================================================================
+//======================================================================================================================================================
+
+#inventoryPage {
+    #viewPage{
+        position: fixed;
+        overflow: overlay;
+        padding-bottom: 100px; 
+    }
+
+
+}
+.view-wrap {
+    padding: 5px 0px;
+    padding-bottom: 50px;
+    .action-wrap{
+       margin: 20px 0px 15px 0px;
+    }
+}
+.actionBtn {
+    position: relative;
+    top: 10px;
+    width: 150px;
+    left:0px;
+    md-radio-button {
+        background-color: rgba(0, 0, 0, 0.12);
+        padding: 10px 15px;
+        border: 1px rgba(2, 80, 70, 0.09) solid;
+        border-radius: 4px;
+        color: darken(@primaryColor, 30%);
+        margin: 10px 0px;
+        font-size: 12px;
+        span {
+            font-family: @robo-bold;
+        }
+        md-label{
+                line-height: 12px;
+    position: relative;
+    top: -2px;
+        }
+    }
+}
+
+.selectBtn-wide{   
+    position: relative;
+    line-height: 20px;
+    display: block;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+    border-radius: 3px;
+    margin: 10px 10px -15px 10px;
+    top: -18px;
+    background: white;
+    border: 1px rgba(0,0,0,0.26) solid;
+
+    select{
+        padding: 10px;
+        width: 80%;
+        outline: 0;
+        border: none;
+        background-color: rgb(250,250,250);
+        border-radius: 3px;
+    }
+    button{
+        position: absolute;
+        float: right;
+        top: 0;
+        right: 0;
+        margin: 0;
+        height: 41px;
+        opacity: 1 !important;
+        font-size: 32px;
+        line-height: 10px;
+    }
+}
+
+.sectionBtn-wide{
+    width: 110%;
+    text-align: left;
+    border-bottom: 1px #d0d1d1 solid;
+    border-radius: 0;
+    margin: 0 -5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    padding-left: 25px;
+}
+
+.checkList-item{
+            padding: 15px 30px;
+    border-bottom: 1px rgba(0,0,0,0.1) solid;
+    margin: 0px;
+    md-label{
+        width: 100%;
+    }
+    .md-container{
+        margin-left: 15px;
+    }
+    .name{
+        font-family: @robo-bold;
+    }
+    p{
+            margin: 0 15px;
+    float: left;
+    }
+}
+
+
+
+.actionBtn .md-checked{    
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+    border: 1px #03988A solid;
+    background-color: #17BAA3;
+}
+
+
+
+.formBtn{
+    left: -5px;
+    padding: 5px 15px;
+    i{
+        position: relative;
+        top: 5px;
+    margin-right: 5px;
+    }
+}
+
+.formBtn.alertBtn.formBtn.alertBtn.md-button.md-button:not([disabled]){
+    background-color: rgb(251,140,0);
+    color: white;
+&:hover{
+    background-color: #FF6D00;
+}
+
+}
+
+
+
+#productView, #categoryView, #userView, #systemView, #payment, #detailsView{
+#create, 
+#edit {
+    .form,form {
+        md-content {
+            border-radius: 4px;
+            padding: 15px 15px 0px 15px;
+            margin: 0px 2px 5px 2px;
+                min-height: 160px;
+            .form-title{
+                margin: -15px -18px 15px -15px;
+                background-color:lighten(@gray-base, 90%);
+                padding: 13px 20px;
+                border-bottom: 1px lighten(@gray-base, 82%) solid;
+                font-family: "Roboto-bold", sans-serif;
+                color: lighten(@gray-base, 40%);  
+            }
+            md-input-container.md-icon-float > label {
+                color: #000000;
+                font-size: 16px;
+            }
+            md-input-container.textarea {
+                textarea {
+                    padding-left: 36px;
+                    width: 100%;
+                    &::after {
+                        content: " ";
+                        width: 36px;
+                        height: 20px;
+                        background-color: red;
+                    }
+                }
+                .cover {
+                    position: absolute;
+                    background-color: #FFFFFF;
+                    width: 36px;
+                    height: 2px;
+                    float: none;
+                    clear: both;
+                    bottom: 26px;
+                }
+            }
+            input{
+                font-size: 18px;
+            }
+            md-input-container.textarea.md-input-focused textarea,
+            md-input-container.textarea.md-input-has-value textarea {
+                padding-top: 20px;
+            }
+            .select {
+                md-select {
+                    padding: 5px 0px;
+                    // border-bottom: 1px rgba(0, 0, 0, 0.24) solid;
+                }
+                md-select-label {
+                    width: 100%;
+                    font-size: 20px;
+                }
+            }
+            .colorSet{
+                //background-color: red;
+                md-input-container{
+                    margin: 0px;
+                    padding: 8px 0px;
+                    margin-left: 36px
+                }
+                md-select{
+                    margin:0px;
+                    padding: 0px 0px 20px 0px;
+                        font-size: 18px;
+                }
+                md-icon{
+                    position: absolute;
+                    top:10px;
+                        left: 2px;
+                       color: #757575;
+                }
+                md-select-label{
+                    width: 100%;
+                        
+                }
+                md-select-menu md-content{padding-top: 0px; padding-bottom: 0px;}
+            }
+
+            md-input-container > md-icon{
+                color: #757575;
+            }
+
+
+
+
+            .imageSet, .categorySet, .selectSet{
+                //background-color: red;
+                position: relative;
+                md-input-container{
+                    margin: 0px;
+                    padding: 8px 0px;
+                    margin-left: 36px
+                }
+                md-select{
+                    margin:0px;
+                    padding: 0px 0px 20px 0px;
+                        font-size: 18px;
+                }
+                md-icon{
+                    position: absolute;
+                    top:10px;
+                        left: 2px;
+                        color: #212121;
+                }
+                md-select-label{
+                    width: 100%;
+                        
+                }
+                md-select-menu md-content{padding-top: 0px; padding-bottom: 0px;}
+                .thumb{
+                    width: 25px;
+                    height: 25px;
+                    left: 3px;
+                    position: relative;
+                    border-radius: 50%;
+                }
+                
+            }
+            
+            .dateSetter{
+                overflow: hidden;
+                position: relative;
+
+                label{
+                      display: block;
+                      font-size: 14px;
+                      margin-bottom: 10px;
+                }
+                input{
+                    width:100%;
+                }
+            
+            
+            }
+            
+            .selectSetter{
+                margin-bottom: 20px;
+                overflow: hidden;
+                position: relative;
+                margin-top: 13px;
+                .icon-img,.icon{
+                    position: absolute;
+                    top: 0;
+                    height: 30px;
+                    background-color: #ffffff;
+                    width: 35px;
+                    border: none;
+                    outline: 0;
+                    img{
+                        height: 18px;
+                        width: 18px;
+                        background-color: #ffffff;
+                        border-radius: 50%;
+                        margin-left: 2px;
+                    }
+                }
+                
+                select{
+                    width: 100%;
+                    z-index: 2;
+                    position: relative;
+                    padding-left: 35px;
+                    outline: 0;
+                    border:none;
+                    background-color: transparent;
+                    height: 25px;
+                      
+ 
+                }
+                
+                option{
+                    width:100%;
+                    position:relative;
+                     background-size: cover;
+                      background-repeat: no-repeat;
+                }
+                
+                hr{
+                    margin: 0px;
+                    margin-left: 35px;
+                    position: absolute;
+                    border-top: 1px rgba(0, 0, 0, 0.117647) solid;
+                    width: 100%;
+                    bottom: 0;
+                    z-index: 3;
+                }
+                
+            }
+
+            .chipSelector{
+                //border:1px red solid;
+                height: 40px;
+                border: 1px red solid;
+                margin-top: 5px;
+                background-color: rgba(0, 0, 0, 0.12);
+                padding: 0 5px;
+                border: 1px rgb(0, 132, 120) solid;
+                border-radius: 4px;
+                color: #FFFFFF;
+                background-color: #009688;
+                font-family: "Roboto-bold", sans-serif;
+                font-size: 12px;
+                select {
+                    padding-left: 0;
+                    margin-top: 5px;
+                    option{
+                        color: #009688;
+                    }
+                }
+            }
+            .chip-wrap.no-input {
+                input {
+                    display: none;
+                }
+                
+                md-chips .md-chips {
+                    box-shadow: none;
+                }
+            }
+
+            .form-error{
+                margin-top: 0px;
+                text-transform: uppercase; 
+                line-height: 23px;
+                i{
+                    position: relative;
+                    top: 0; 
+                    float: left;
+                    margin-right: 5px;
+                    color: rgba(255,171,64,0.87);
+                }
+            }
+            .list{ 
+                //border:1px red solid;
+                    margin: -15px -0px -15px -15px;
+                button{
+                    width: 110%;
+                    text-align: left;
+                    border-bottom: 1px #D0D1D1 solid;
+                    border-radius: 0px;
+                    margin: 0px -5px;
+                    padding: 10px 15px;
+                        font-size: 14px;
+    padding-left: 25px;
+    b{
+            font-family: "Roboto-bold", sans-serif;
+    }
+                }
+            }
+        }
+
+        .edit-wrap{    margin: -32px -15px 0px -15px;
+    background-color: #E2E2E2;
+    padding: 36px 15px 0px 15px;}
+    }
+}
+
+} 
+/*//margin-bottom: 22px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 21px;*/
+
+
+#productView,
+#categoryView,
+#userView,
+#detailsView,
+ #systemView {
+    #remove {
+        md-content {
+            border-radius: 4px;
+            background-color: rgb(255, 255, 255);
+            padding: 15px 0px;
+            margin: 0px 2px 5px 2px;
+            .title {
+                margin: -15px 0px 0px 0px;
+                background-color: lighten(@gray-base, 90%);
+                padding: 13px 20px;
+                border-bottom: 1px lighten(@gray-base, 82%) solid;
+                font-family: "Roboto-bold", sans-serif;
+                color: lighten(@gray-base, 40%);
+                font-size: 16px;
+            }
+            .removeItem,
+            .removeTab,
+            .removeUser {
+                margin: 0px;
+                padding: 15px;
+                border-bottom: 1px lighten(@gray-base, 85%) solid;
+                md-checkbox {
+                    //border: 1px red solid;
+                    padding: 0px 10px 0px 30px;
+                    margin: 0px;
+                    .md-container {
+                        //top:10%;
+                    }
+                }
+                md-checkbox.md-checked {
+                    color: @darkPrimaryColor;
+                }
+                b {
+                    font-family: "Roboto-bold", sans-serif;
+                }
+                p {
+                    margin: 0px;
+                    padding-left: 30px;
+                    font-size: 12px;
+                }
+                .name {
+                    margin: 0px;
+                    font-size: 16px;
+                }
+                // .amount{
+                //     background-color: pink;
+                // }
+                .color {
+                    span {
+                        padding: 2px 5px;
+                        min-width: 60px;
+                        display: inline-block;
+                        border-radius: 4px;
+                        border: 1px lighten(@gray-base, 85%) solid;
+                        min-height: 25px;
+                        line-height: 30px;
+                        float: right;
+                    }
+                }
+                .img {
+                    img {
+                        background-color: pink;
+                        height: 25px;
+                        width: 25px;
+                        border-radius: 100%;
+                        overflow: hidden;
+                        margin-left: 10px;
+                    }
+                }
+                // .barcode{
+                //     background-color: pink;
+                // }
+                .notes {
+                    border-top: 1px #D8D9D9 dashed;
+                    margin: 5px 30px 0px 30px;
+                    padding: 5px 0px;
+                    width: 95%;
+                    display: inline-block;
+                }
+            }
+            .removeItem:nth-child(odd),
+            .removeTab:nth-child(odd),
+            .removeUser:nth-child(odd) {
+                background-color: lighten(@gray-base, 90%);
+            }
+        }
+    }
+}
+
+//======================================================================================================================================================
+//======================================================================================================================================================
+// PRODUCTVIEW
+//======================================================================================================================================================
+//======================================================================================================================================================
+
+#productView{
+
+
+//===========================================================================
+//CREATE / EDIT
+//=========================================================================== 
+
+
+
+//===========================================================================
+//EDIT 
+//===========================================================================
+#edit {
+    .form, form{
+        md-content {
+            md-input-container.textarea {
+                .cover {
+                    position: absolute;
+                    background-color: #FFFFFF;
+                }
+            }
+            .colorSet{
+
+                md-select-label{
+                        padding-bottom: 9px
+                }
+                
+            }
+        }
+    }
+}
+
+
+//===========================================================================
+//REMOVE 
+//===========================================================================
+
+
+
+}
+
+//======================================================================================================================================================
+//======================================================================================================================================================
+// DETAILS
+//======================================================================================================================================================
+//======================================================================================================================================================
+
+#detailsView{
+
+
+
+
+
+.formScroll{height: 60%;
+    overflow: overlay;
+    max-height: 300px;
+    width: 100%;}
+//===========================================================================
+//CREATE 
+//===========================================================================
+
+#create, #edit, #remove {
+    #detailBtns {
+        display: inline-block;
+        position: absolute;
+        top: -1px;
+        right: 0px;
+        .detailBtn {
+            border: 1px rgba(0, 0, 0, 0.12) solid;
+            background-color: rgba(255, 255, 255, 0.87);
+            height: 35px;
+            min-height: 0px;
+            line-height: 30px;
+            margin-left: 0px;
+            margin-right: 5px;
+            i {
+                position: relative;
+                top: 2px;
+                font-size: 15px;
+                margin-right: 2px;
+                color: rgba(0, 0, 0, 0.26);
+            }
+        }
+    }
+    .detailBox {
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+        border: 1px rgba(0, 0, 0, 0.21) solid;
+        border-radius: 3px;
+        margin-bottom: 15px;
+        .boxHead {
+            height: 40px;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.1);
+            button {
+                display: inline-block;
+                margin: 0px;
+                float: left;
+                padding: 0px;
+                width: 50px;
+                min-width: 0px;
+                line-height: 40px;
+                border-radius: 0px;
+                height: 40px;
+                
+                i{
+                    position: relative;
+                    top:2px;
+                }
+            }
+             .title {
+                margin: 0px;
+                line-height: 40px;
+            }
+            .detailBtn {
+                float: right;
+                margin: 0px;
+                top: -40px;
+                line-height: 40px;
+                    width: auto;
+                padding: 0px 15px;
+                background-color: rgba(0,0,0,0.1);
+                  font-family: @robo-bold;
+                i {
+                    position: relative;
+                    top: 2px;
+                    font-size: 15px;
+                    margin-right: 2px;
+                    color: rgba(0, 0, 0, 0.26);
+                }
+
+            }
+            .state {
+                margin-right: 10px;
+                opacity: .8;
+            }
+            .close {
+                float: right;
+                top: -42px;
+                    height: 42px;
+                opacity: .8;
+                
+            }
+        }
+
+
+
+
+        .boxContent {
+            padding: 15px;
+            border-top: 1px rgba(0, 0, 0, 0.1) solid;
+                background-color: rgb(238,238,238);
+            .boxContent-btn{
+                   margin: -5px -15px 15px -15px;
+    padding: 0 15px 0px 15px;
+    border-bottom: 1px #b4b4b4 solid;
+    height: 30px;
+                .title{
+                    font-family: @robo-bold;
+                    margin:0px;
+                    display: inline-block;
+                }
+            }
+            .boxContent-option {
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+                border: 1px rgba(0, 0, 0, 0.26) solid;
+                margin-bottom: 15px;
+                padding: 15px 15px 0 15px;
+                background-color: rgba(255,255,255,0.87);
+                border-radius: 3px;
+                .close{
+                    display: inline-block;
+                    margin: 0;
+                    float: right;
+                    padding: 0;
+                    width: 50px;
+                    min-width: 0;
+                    line-height: 40px;
+                    border-radius: 0;
+                    height: 40px;
+                    overflow: hidden;
+                    top: -10px;
+                    right: -15px;
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+//===========================================================================
+//EDIT 
+//===========================================================================
+
+
+//===========================================================================
+//REMOVE 
+//===========================================================================
+
+
+
+}
+
+
+
+
+
+
+//======================================================================================================================================================
+//======================================================================================================================================================
+// CATEGORY
+//======================================================================================================================================================
+//======================================================================================================================================================
+
+#categoryView{
+
+//===========================================================================
+//CREATE 
+//===========================================================================
+
+
+
+//===========================================================================
+//EDIT 
+//===========================================================================
+
+
+//===========================================================================
+//REMOVE 
+//===========================================================================
+
+
+
+#remove {
+    md-content {
+        .title {
+        }
+        .removeTab {           
+            md-checkbox {
+                //border: 1px red solid;
+                padding: 0px 10px 0px 30px;
+                margin: 0px;
+                .md-container {
+                    //top:10%;
+                }
+            }
+            md-checkbox.md-checked {
+            }
+        }
+        .name{
+            
+        }
+        .removeItem:nth-child(even) {
+            background-color: lighten(@gray-base, 90%);
+        }
+    }
+}
+
+}
+
+
+
+//======================================================================================================================================================
+//======================================================================================================================================================
+// SYSTEM VIEW
+//======================================================================================================================================================
+//======================================================================================================================================================
+
+.printer-group{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+    border: 1px rgba(0,0,0,0.21) solid;
+    border-radius: 3px;
+    padding: 10px 15px 0 15px;
+    margin-bottom: 15px;
+    height: 70px;
+        padding-right: 65px;
+    position: relative;
+    .removeBtn{
+        float: right;
+        position: absolute;
+        top: 0;
+        width: 60px;
+        min-width: 0;
+        right: 0;
+        height: 68px;
+        line-height: 68px;
+        margin: 0px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================================
+ITEM LIST
+======================================================*/
+
+
+/* Medium screen & Biger */
+@media (min-width: @screen-sm) {
+    #inventoryPage {
+        #viewPage {
+            padding-bottom: 0px;
+        }
+    }
+
+
+    //Header BUTTONS
+     #inventoryPage #sectionType .typeBtn {
+       // min-width: 150px;
+        p {
+            display: inline-block;
+        }
+    }
+
+    .view-wrap {
+        padding: 5px 22px;
+        .action-wrap {
+            margin: 20px 10px 15px 130px;
+        }
+    }
+    
+    .actionBtn {
+        position: absolute;
+        top: 14px;
+        left: 12px;
+        width: 122px;
+    }
+    
+    .actionBtn.create {
+        top: 14px;
+    }
+    
+    .actionBtn.edit {
+        top: 64px;
+    }
+    
+    .actionBtn.remove {
+        top: 114px;
+    }
+
+    .actionBtn.btnFour {
+        top: 165px;
+    }
+    
+    #productView #remove, #productView #edit, #categoryView #remove, #userView #remove, #detailsView #remove, #systemView #create, #systemView #edit{
+        md-content {
+            //position: fixed;
+            width: 70%;
+            height: 60%;
+            overflow: overlay;
+            max-height: 300px;
+            width: 100%;
+        }
+        .actionBtn--wrap {
+            position: fixed;
+            //bottom: 10px;
+        } 
+    }
+}
+
+//HEIGHT ONLY
+@media (min-height: 600px) {
+    #productView #remove, #productView #edit, #categoryView #remove, #userView #remove, #detailsView #remove, #systemView #create, #systemView #edit {
+        md-content {
+            //position: fixed;
+            width: 100%;
+            height: 70%;
+            overflow: overlay;
+        }
+        .actionBtn--wrap {
+            position: fixed;
+            //bottom: 20px;
+        }
+    }
+}
+
+/* Medium screen & Biger */
+@media (min-width: @screen-md) {
+
+
+
+   
+}
+/* Large screen & Biger */
+@media (min-width: @screen-lg) {
+
+
+
+    
+}

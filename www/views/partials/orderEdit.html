@@ -1,0 +1,46 @@
+<!--=================================================================================
+=====================================================================================
+EDIT ORDER
+==================================================================================-->
+<form name="orderForm" ng-submit="saveOrder(orderForm)" validate role="form">
+    <div class="clearfix editMenu">
+        <div class="title">EDIT ORDER</div>
+
+        <md-button class="acceptBtn " type="submit">
+       <!--      <i class="material-icons lvlout">&#xE876;</i> -->
+            <i class="material-icons lvlout">&#xE876;</i>
+        </md-button>
+        <md-button class="rejectBtn " ng-click="editOrder()">
+            <i class="material-icons lvlout">&#xE14C;</i>
+        </md-button>
+       <!--  <md-button class="editBtn blue">
+                <span>PRINT ORDER</span><i class="material-icons lvlout">&#xE8AD;</i>
+        </md-button>-->
+        </div> 
+    <md-content md-theme="default">
+        <div class="col-sm-6 npLR">
+            <md-input-container class="md-icon-float">
+                <!-- Use floating label instead of placehoasdlder -->
+                <label>Order Name</label>
+                <md-icon class="material-icons">&#xE892;</md-icon>
+                <input data-ng-model="currentOrder.Order_Name" name="Name" type="text" required>
+            </md-input-container>
+        </div>
+        <div class="col-sm-6 npLR">
+            <md-input-container class="md-icon-float">
+                <!-- Use floating label instead of placehoasdlder -->
+                <label>Table</label>
+                <md-icon class="material-icons">&#xE892;</md-icon>
+                <input data-ng-model="currentOrder.Order_Table" name="Table" type="text" required>
+            </md-input-container>
+        </div>
+        <div class="col-sm-12 npLR">
+            <md-input-container class="md-icon-float md-icon-right">
+                <!-- Use floating label instead of placehoasdlder -->
+                <label>Order Info</label>
+                <md-icon class="material-icons">&#xE8D2;</md-icon>
+                <input data-ng-model="currentOrder.Order_Notes" name="Notes" type="text">
+            </md-input-container>
+        </div>
+    </md-content>
+</form>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <!-- <base href="/">--> 
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+     <!-- <meta http-equiv="refresh" content="15" /> -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <!--     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  -->
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="css/app.css">
+    <!-- endbuild -->
+</head>
+
+<body ng-app="monarchApp" id="appWindow"  class="">
+
+
+
+    <!-- Add your site or application content here -->
+    <header id="appMenu">
+        <div id="menu-head">
+            <div class="row">
+                <div class="col-xs-6 nav-left">
+                    <md-button id="rightPanel-open" class="menu-btn" ng-controller="MainCtrl" ng-transclude="" ng-click="toggleLeft()" tabindex="0">
+                                <i class="material-icons md-24 menu-icon">menu</i>
+                            <img src="./img/logo.svg" class="img-responsive" id="logo" />
+                            </md-button>
+                    
+                    
+                    <!--<md-button class="menu-btn">
+                        <a href="" data-toggle="modal" data-target="#mainMenu">
+                            <i class="material-icons md-24 menu-icon">menu</i>
+                            <img src="./img/logo.svg" class="img-responsive" id="logo" />
+                        </a>
+                    </md-button>-->
+                </div>
+                <div class="col-xs-3 nav-center">
+                    <!--  <md-button class="menu-btn">
+                        <a href=""> <i class="material-icons md-24 menu-icon">search</i>
+                        </a>
+                    </md-button> -->
+                </div>
+                <div class="col-xs-3 nav-right">
+                   <!--  <md-button class="menu-btn logo">
+                        <a href=""><img src="./img/logo.svg" class="img-responsive" id="logo" /></a> 
+                    </md-button>-->
+                </div>
+            </div>
+        </div>
+
+        <!-- <div id="pagebtns">
+             <md-button id="pagebtns" ng-controller="PayCtrl" class="animated slideInLeft" ng-click="backBtn()"><i class="material-icons md-36 back-btn" >arrow_back</i>
+            </md-button>
+
+        </div> -->
+    </header>
+
+
+
+
+    <div id="appContent">
+
+        <div ng-view="">
+        </div>
+    </div>
+
+
+
+
+    <md-sidenav id="rightPanel" class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+        <md-toolbar class="md-theme-light md-toolbar">
+            <h1 class="md-toolbar-tools">Functions</h1>
+        </md-toolbar>
+        <md-content ng-controller="MainCtrl" layout-padding>
+           
+            <a href="" ng-click="hay()" class="function" ng-repeat="function in allfunctions">
+                <i class="material-icons md-36 menu-icon">done_all</i>
+                <h5 class="name">FUNCTION NAME</h5>
+            </a>
+            <md-button ng-click="close()" class="md-primary">
+                Close Sidenav Right MAIN
+            </md-button>
+        </md-content>
+    </md-sidenav>
+    
+    <div id="mainloader" ng-show="showModal" ng-controller="LeftCtrl">
+  <span class="loader-wrap">
+    <md-progress-circular md-mode="indeterminate" class="md-accent md-hue-3" md-diameter="60"></md-progress-circular>
+  </span>
+    
+  </div>
+    
+     <!--  md-is-locked-open="$mdMedia('gt-md')" -->
+    <md-sidenav id="leftPanel" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+        <md-toolbar class="md-theme-indigo header">
+            <img src="./img/logo.svg" id="menuLogo">
+             <h4 class="user-name col-xs-12" ng-controller="LeftCtrl">                    
+                   {{currentUser.First_Name}} {{currentUser.Last_Name}} - {{date | date:'hh:mm:ss a'}}
+              </h4>
+            
+            <a class="exit" ng-controller="LeftCtrl" aria-label="Close" ng-click="logout()">                    
+                <i class="material-icons menu--icon">&#xE8AC;</i>
+            </a>
+        </md-toolbar>
+        <md-content layout-padding ng-controller="LeftCtrl">
+            
+            <md-button ng-click="close()" class="md-primary closeBtn">
+                <i class="material-icons">&#xE5CD;</i>
+            </md-button>
+            
+          
+            <div class="menu-item" >
+                    <a aria-label="Close" ng-repeat="item in menuItems track by $index" ng-click="menuNav(item)" class="menu--btn md-raised " ng-class="item.active ? '' : 'disabled'"
+                    ng-disabled="{{!item.active}}" aria-disabled="{{!item.active}}" disabled="{{!item.active}}">
+                        <i class="material-icons menu--icon" ng-bind-html="item.icon"></i>
+                        <h3 class="menu--name">{{item.Name}}</h3>
+                    </a>
+            </div>
+                
+
+            
+            
+        </md-content>
+    </md-sidenav>
+
+
+
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="./bower_components/jquery/dist/jquery.js"></script>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="./bower_components/angular-messages/angular-messages.js"></script>
+    <script src="./bower_components/angular-resource/angular-resource.js"></script>
+    <script src="./bower_components/angular-route/angular-route.js"></script>
+    <script src="./bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="./bower_components/angular-touch/angular-touch.js"></script>
+    <script src="./bower_components/angucomplete-alt/angucomplete-alt.js"></script>
+    <script src="./bower_components/ngKeypad/ngKey.js"></script>
+    <script src="./bower_components/ngKeypad/ngKeypad.js"></script>
+    <script src="./bower_components/ngKeypad/ngKeypadInput.js"></script>
+    <script src="./scripts/ps/owl.carousel.min.js"></script>
+    <script src="./scripts/ps/main.js"></script>
+<!--    <script src="./scripts/ps/jquery.touchsplitter.js"></script>-->
+<!--     <script src="../bower_components/masonry/masonry.js"></script> -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="scripts/directives/autocomplete.js"></script>
+    <script src="./scripts/Email.js"></script>
+    <script src="./scripts/Eftpos.js"></script>
+    <script src="./scripts/IPInterface.js"></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/database.js"></script>
+    <script src="scripts/controllers/master_login.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/payment.js"></script>
+    <script src="scripts/controllers/sidePanels.js"></script>
+    <script src="scripts/controllers/menu.js"></script> 
+    <script src="scripts/controllers/reports.js"></script> 
+    <script src="scripts/controllers/category.js"></script>
+    <script src="scripts/controllers/inventory.js"></script>
+    <script src="scripts/controllers/sync.js"></script>
+    <script src="scripts/controllers/cart.js"></script>
+    <script src="scripts/controllers/search.js"></script>
+    <script src="scripts/controllers/search_n.js"></script>
+    <script src="scripts/controllers/customerInfo.js"></script>
+    <script src="scripts/factory/factory.js"></script>
+    <script src="scripts/services/service.js"></script>
+    <script src="scripts/services/orders.js"></script>
+    <script src="scripts/directives/angular-masonry.js"></script>
+    <script src="scripts/directives/directives.js"></script>
+    <script src="scripts/directives/angular-resizable.js"></script>
+    
+</body>
+
+</html>

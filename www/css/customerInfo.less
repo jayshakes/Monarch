@@ -1,0 +1,68 @@
+//====================================================
+// Import Variables.less
+@import "variables.less";
+// ====================================================
+
+/* ====================================================
+PAYMENT PAGE
+======================================================*/
+#customerPage {
+
+      position: relative;
+  form{
+        position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(1, 163, 141);
+
+      
+    .customerInfo {
+        width: 80%;
+        margin: 2% auto 100px auto; 
+        background-color: transparent !important;
+        
+        //md-content.md-whiteForm-theme
+
+        md-input-container .md-input, md-input-container:not(.md-input-invalid).md-input-has-value label,
+        md-input-container.md-icon-float > label, .icon {
+            color: #FFFFFF;
+        } 
+        md-input-container .md-input {
+            border-bottom: 1px white solid; 
+        }
+        md-input-container.md-icon-float.md-input-focused, md-input-container.md-icon-float.md-input-has-value {
+            margin-top: 0px;
+        }
+        input { font-size: 30px; }
+
+        .title {
+            margin-bottom: 40px;
+            color: #FFFFFF;
+            font-family: @robo-light;
+        }
+
+        .sendBtn {
+            padding: 0 15px 0 5px;
+            i {
+                position: relative;
+                float: left;
+                top: 5px;
+                margin-right: 10px;
+            }
+        }
+    }}
+}
+
+/* Medium screen & Biger */
+@media (min-width: @screen-sm) {
+
+}
+
+/* Medium screen & Biger */
+@media (min-width: @screen-md) {
+   
+}
+/* Large screen & Biger */
+@media (min-width: @screen-lg) {
+
+}

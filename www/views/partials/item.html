@@ -1,0 +1,15 @@
+<div class="c-item" ng-class="item === itemToEdit ? 'selected' : ''" id="item{{item.Item_Name}}" ng-repeat="item in cartItems track by $index">
+    <header class="item-header"><span class="item-price">{{item.Amount}}</span>
+        <h3 class="item-name" ng-click="selectCartItem(item, $index);openOptions(item)">{{item.Item_Name}}</h3>
+        <md-button class="item-remove" ng-click="removefromCart(item, $index)"><i class="material-icons md-18 menu-icon">close</i></md-button><span class="item-count">{{item.Item_Count}}</span></header>
+    <section class="item-funtions">
+    	<span class="item-function" >
+        	<p class="name">Default <b>{{item.Default_Price}}</b></p>
+        </span>
+        <span class="item-function" ng-if="$index > 0" ng-repeat="function in item.functions track by $index">  
+        	<p class="name">{{function.Name}} <b>{{function.Amount}}</b></p>
+        </span>
+    </section>
+</div>
+
+

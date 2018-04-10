@@ -1,0 +1,276 @@
+<md-progress-linear md-mode="indeterminate"  ng-if="showProgress" id="mainProgress"></md-progress-linear>
+<div id="menu-content" class="main-pageNav">
+
+
+
+
+
+    <section class="tranTotal" >
+        <div class="tab">
+            <svg id="tabLeft" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1024 600" enable-background="new 0 0 1024 600" xml:space="preserve">
+                <path fill="#FFFFFF" d="M1024,0.9c-185.4,0-297.6-4-386.4,105.4C452.2,334.8,426,599.2,47.2,599.2H1024V0.9z" />
+            </svg>
+            <div id="payAmount">
+                <span id="pay-currency">$</span>
+                <span id="pay-total">{{totalAmount | number}}</span>
+                <span id="pay-title" ng-show="itemCount"></span>
+               <!--  <span id="pay-count">DISCOUNT</span> -->
+            </div>
+            <svg id="tabRight" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1024 600" enable-background="new 0 0 1024 600" xml:space="preserve">
+                <path fill="#FFFFFF" d="M0,1.9c185.4,0,297.6-4,386.4,105.4C571.8,335.8,598,600.2,976.8,600.2H0L0,1.9z" />
+            </svg>
+        </div>
+       <!--  <md-button id="orderBtn" class=" topLvlBtn">
+        <b class="roboBold">MORE</b> 
+            <i class="material-icons">&#xE5D4;</i>
+        </md-button>  -->
+        
+        <md-button id="orderBtn"  ng-model="mainView" ng-click="showOrders()" class="md-raised topLvlBtn">
+            ORDERS <i class="material-icons menu-icon" ng-show="mainView != 1">&#xE85D;</i> <i class="material-icons menu-icon" ng-show="mainView == 1">&#xE14C;</i>
+        </md-button> 
+        <!-- <md-button id="orderBtn"  ng-model="mainView" ng-click="newOrder($event)" class="md-raised topLvlBtn">
+            NEW <i class="material-icons menu-icon">&#xE85D;</i> <i class="material-icons menu-icon">&#xE8B0;</i>  
+        </md-button> -->
+
+      <!--   <md-button id="payBtn" onclick="ScanBarcode()" class="md-raised">PAY
+            <i class="material-icons md-24 menu-icon">done_all</i>
+        </md-button>  -->
+       <!-- tabs <div class="rightPanel-button-wrap">
+                <md-button id="rightPanel-open" class="md-rasised" ng-transclude="" ng-click="toggleRight()" tabindex="0">EDIT
+                    <i class="material-icons md-24 menu-icon">keyboard_arrow_right</i>
+                </md-button>
+            </div>-->
+    </section>
+
+    <div class="row">
+        <div class="col-xs-6 npL">
+            <div class="left-wrap clearfix">
+            <article class="angucomplete f-right">
+                <div angucomplete-alt id="homeSearch"  
+                  placeholder="Search items"
+                  maxlength="50"
+                  pause="10"
+                  selected-object="addToCart"
+                  local-data="allProducts"
+                  search-fields="Item_Name"
+                  title-field="Item_Name"
+                  minlength="1"
+                  input-class="form-control form-control-small"
+                  match-class="highlight">
+              </div>
+              <i class="icon material-icons">&#xE8B6;</i>
+              </article>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="right-wrap clearfix">
+                           </div>
+        </div>
+    </div>
+</div>
+<div layout="column" id="hvrBtn">
+    <md-content class="md-padding" layout="column">
+        <div class="lock-size" layout="row" layout-align="center center">
+            <md-fab-speed-dial>
+                <md-fab-trigger>
+                    <md-button aria-label="menu" ng-click="payment()"  class="md-fab md-warn paymentBtn">
+                        <i class="material-icons md-36">&#xE877;</i>
+                    </md-button>
+                </md-fab-trigger>
+            </md-fab-speed-dial>
+        </div>
+    </md-content>
+</div>
+<section id="categoryListBox">
+    <div id="c-ListBox">
+        <a class="category-item cart-view" ng-click="resetProducts()">
+            <h3 class="num"></h3><i class="material-icons md-48 menu-icon">&#xE8CB;</i>
+        </a>
+        <span ng-repeat="tab in allItemTabs track by $index">
+        <a href="" ng-click="prodList(tab.id);" class="category-item" >
+           <!--  <h3 class="name"> {{tab.id}} {{tab.name}}</h3> -->
+            <span class="name">{{tab.name}}</span>
+            <i class="material-icons md-36 menu-icon">list</i>
+        </a></span>
+    </div>
+</section>
+<div id="widget">
+        <!-- split-left -->
+    <div id="widget-inner">
+    <div id="split-left" class="col-sm-8 col-md-9 npL">
+        <section id="ordersList" class=" fadeIn ordersList" ng-show="mainView == 1">
+            <div class="clearfix editMenu">
+                <div class="title">PENDING ORDERS</div>
+                
+                <md-button class="acceptBtn " ng-click="setOrder()" ng-show="selectedOrder">
+                    <i class="material-icons lvlout">&#xE876;</i>
+                </md-button>
+                <md-button class="rejectBtn " ng-click="resetOrder()">
+                 <i class="material-icons lvlout">&#xE14C;</i>
+                </md-button>
+                
+            </div>
+       
+            <article id="orderItems" class="animated fadeIn" ng-show="selectedOrder">
+                <div ng-repeat="item in selectedOrder.cartItems track by $index" class="item clearfix"> 
+    
+                     <h4 class="name col-sm-3">{{item.Item_Name}}</h4>
+                     <p class="price col-sm-3">${{item.Amount}}</p>
+                </div>
+            </article>
+            <article ng-hide="selectedOrder" >
+             
+            <div ng-repeat="order in allOrders track by $index" id="{{'ms'+$index}}" class="product-wrap  col-xs-6 col-sm-4 col-md-3" >
+                <div class="order" ng-click="setSelectedOrder(order,$index)">
+                <span class="num">{{order.cartItems.length}} ITEMS</span>
+                <span class="date">{{order.DateTime}}</span>
+                    <!-- <span class="dim"></span> -->
+                    <!-- <span class="count">{{order.OrderID}}</span> -->
+                    
+                    <div class="info">
+                        <h3 class="name">{{order.OrderInfo}}</h3>
+                        <p class="price">${{order.OrderAmount}}</p>
+                        <p class="table">TABLE:{{order.TableNumber}}</p>
+                    </div>
+                </div>
+                </div>
+            </article>
+
+            <article class="noContent" ng-show="allOrders.length == 0">
+                <p> NO ITEMS</p>
+            </article>
+
+        </section>
+
+        <section id="orderEdit" class=" fadeIn ordersList" ng-show="mainView == 4">
+             <div class="orderEditForm" ng-include="" src="'./views/partials/orderEdit.html'"></div>
+        </section>
+
+        <section id="orderEdit" class=" fadeIn ordersList" ng-show="mainView == 5">
+            <div class="orderEditForm" ng-include="" src="'./views/partials/tagEdit.html'"></div>
+        </section>
+        <!-- <section id="" class="animated fadeIn ordersList" ng-show="mainView == 2">
+                    View 2  {{mainView}}
+                </section>
+                <section id="" class="animated fadeIn ordersList" ng-show="mainView == 3">
+                    View 3  {{mainView}}
+                </section> -->
+        <section id="optionList" class=" fadeIn" ng-show="mainView == 2">
+            <!-- ng-if="optionBox" class="show: optionBox;" ng-class="{show: optionBox==true}"  -->
+            <md-button aria-label="menu" ng-click="closeEdit()" class="close md-button md-default-theme">
+                <i class=" material-icons md-18">close</i>
+            </md-button>
+            <md-button class="formBtn" type="button" ng-click="submitEdit()">
+                <i class="material-icons md-18 menu-icon">done</i>OK
+            </md-button>
+            <h5 class="main-title">ADD ON</h5>
+            <md-checkbox ng-model="optionsView" ng-class="itemToEdit.Options.length > 0 ? 'show' : 'hidden'" ng-click="optionsViewOpen = !optionsViewOpen" id="view-switch" aria-label="view-switch">
+                <span class="off">OPTIONS</span>
+                <span class="on">DETAILS</span>
+            </md-checkbox>
+            <div class="functions-wrap clearfix" ng-show="!optionsViewOpen">
+                <span class="swipeInfo">Swipe between functions</span>
+                <div id="functionsCarousel">
+                    <div class="function">
+                        <md-button class="vmd-raised" ng-click="addDiscountFunction()">ADD DISCOUNT</md-button>
+                    </div>
+                    <!-- <div class="function">
+                                    <md-button class="vmd-raised" ng-click="addDiscountFunction()">OPTIONS</md-button>
+                                </div>
+                                 <div class="function">
+                                    <md-button class="vmd-raised" ng-click="addDiscountFunction()">dfg</md-button>
+                                </div>
+                                <div class="function">
+                                    <md-button class="vmd-raised" ng-click="addDiscountFunction()">DISCOUNT</md-button>
+                                </div>
+                                <div class="function">
+                                    <md-button class="vmd-raised" ng-click="addDiscountFunction()">OPTIONS</md-button>
+                                </div>
+                                <div class="function">
+                                    <md-button class="vmd-raised" ng-click="addDiscountFunction()">DISCOUNT</md-button>
+                                </div> -->
+                </div>
+            </div>
+            <!-- PAD-VIEW -->
+            <div class="clearfix" id="padView" ng-show="!optionsViewOpen">
+                <div class="col-xs-6 npLR">
+                    <div id="editPad">
+                        <div data-ng-keypad="numeric" data-auto-close="true" data-ng-draggable class="numpad">
+                            <div ng-include="" src="'./views/partials/numeric_edit.html'"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="editDisplay col-xs-6">
+                    <button id="editNum" class="displayOption" ng-class="function.selected ? 'active' : 'inactive'" ng-click="optionEdit(function,itemToEdit)" ng-repeat="function in itemToEdit.functions">
+                        <label>
+                            {{function.Name}} <b ng-if="function.Name === 'Item Price'">(Original: {{itemToEdit.Default_Price | number}} )</b>
+                        </label>
+                        <span class="amount"> {{function.Amount}} <span  ng-if="function.Name == 'Discount'"> % </span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- OPTIONS-VIEW -->
+            <div class="clearfix" id="optionsView" ng-show="optionsViewOpen">
+                <div class="col-xs-12 npLR">
+                    <form name="editItemDetails" validate role="form" id="editItemDetails" ng-include="" src="'./views/partials/option.html'"></form>
+                </div>
+            </div>
+        </section>
+
+        <section id="prod-list" ng-show="mainView == 3">
+            
+        
+        <div ng-repeat="product in allProducts track by $index" class="product-wrap  col-xs-6 col-sm-4 col-md-3 col-md-3" >
+            <a href="" class="product bG"  ng-click="addToCart(product)">
+                <span class="dim" style="background-color: {{product.Color}}"></span>
+                <img class="img" ng-if="product.Img == ''" src="./img/steak.jpg" />
+                <img class="img" ng-if="product.Img != ''" ng-src="{{product.Img}}" />
+                <div class="info">
+                    <h3 class="name">{{product.Item_Name}}</h3>
+                    <p class="price">${{product.Amount}}</p>
+                    <!-- <p class="price">${{product}}</p> -->
+                </div>
+            </a>
+
+           
+        </div>
+
+        <div ng-if="allProducts.length <= 0">
+            Please add some items.    
+        </div>
+</section>
+
+    </div>
+    <!-- split-left end-->
+    <!-- split-right -->
+    <div id="cart-list" class="col-sm-4 col-md-3" >
+   
+
+
+        <div id="oderIdBtn">
+        
+            <!--  <div class="col-sm-6 npL editOrder" >ID:<b> 20515</b></div> -->
+<md-button class="col-sm-6 npL editOrder" ng-click="editOrder()" ng-class="{ 'selected': mainView == 4 }">
+    <!-- <i class="material-icons">&#xE161;</i> -->
+    EDIT
+    </md-button>
+<md-button class="col-sm-6 text-right npLR saveOrder"  ng-click="saveOrder()" ng-class="{ 'selected': mainView == 5 }">
+    SAVE
+    <i class="material-icons md-24 menu-icon">&#xE638;</i>
+</md-button>
+
+       
+
+
+            
+        </div>
+        <div class="item-list">
+        <div ng-include="" src="'./views/partials/item.html'"></div>
+         </div>
+    </div>
+    <!-- split-right end-->
+</div>
+
+</div>
+
+

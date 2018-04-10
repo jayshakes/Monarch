@@ -1,0 +1,32 @@
+
+<section id="customerPage" class="" ng-if="controller == CustomerInfoCtrl">
+<form name="emailForm" validate>
+
+    <md-content md-theme="whiteForm" class="customerInfo">
+    <h2 class="title text-center">Please enter you details to receive your emailed receipt</h2>
+        <div class="col-sm-6">
+            <md-input-container class="md-icon-floaxt">
+                <!-- Use floating label instead of placeholder -->
+                <!-- <label>Name</label> -->
+                <md-icon class="email material-icons md-24 icon">person</md-icon>
+                <input name="name" ng-model="name" type="text" placeholder="Name" id="name">
+            </md-input-container>
+        </div>
+        <div class="col-sm-6">
+            <md-input-container>
+                <!-- Use floating placeholder instead of label -->
+                <md-icon class="email material-icons md-24 icon">email</md-icon>
+                <input name="email" ng-model="email" type="email" placeholder="Email ( Required )" required id="email">
+            </md-input-container>
+        </div>
+        <div class="row">
+        	<div class="col-sm-12 text-center">
+            <md-button class="md-raised sendBtn" ng-click="cancel()"><i class="material-icons md-24" >clear</i> Cancel</md-button>
+            <md-button class="md-raised sendBtn" onclick="Print();resetAll()"><i class="material-icons md-24">done</i> Print</md-button>
+            <md-button class="md-raised sendBtn" onclick="Email()"><i class="material-icons md-24">done</i> Send</md-button>
+        </div>
+        </div>
+        
+    </md-content>
+    </form>
+</section>

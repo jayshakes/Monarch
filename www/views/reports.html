@@ -1,0 +1,88 @@
+<md-progress-linear md-mode="indeterminate" ng-if="showProgress" id="viewProgress"></md-progress-linear>
+<div id="reportsPage">
+    <div id="menu-content" class="reports-page">
+        <div class="row">
+            <div class="col-xs-1 npL">
+                <div class="left-wrap clearfix">
+                <md-button id="pagebtns" class="animated slideInLeft" ng-click="backBtn()"><i class="material-icons md-36 back-btn">arrow_back</i>
+                </md-button>
+            </div>
+            </div>
+            <div class="col-xs-11">
+                <div class="right-wrap clearfix">
+                    <article id="sectionType" class="animated slideOutleft">
+                        <md-radio-group ng-model="currentReport">
+                            <md-radio-button value="sales"  class="typeBtn" ng-click="setReport('sales')" aria-checked="true">
+                                <i class="material-icons md-24 type-icon">shopping_cart</i>
+                                <p class="hidden-xs">SALES </p>
+                            </md-radio-button>
+                            <md-radio-button value="items" class="typeBtn" ng-click="setReport('item')">
+                                <i class="material-icons md-24 type-icon">&#xE41D;</i>
+                                <p  class="hidden-xs">ITEMS</p>
+                            </md-radio-button>
+                            <md-radio-button value="category" class="typeBtn" ng-click="setReport('category')">
+                                <i class="material-icons md-24 type-icon">shop</i>
+                                <p class="hidden-xs">CATEGORY</p>
+                            </md-radio-button>
+                            <md-radio-button value="transaction" class="typeBtn" ng-click="setReport('transaction')">
+                                <i class="material-icons md-24 type-icon">&#xE8D6;</i>
+                                <p class="hidden-xs">TRANSACTION</p>
+                            </md-radio-button>
+                            
+                        </md-radio-group>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="pageContent">
+        <section id="reportMenu" class="editMenu clearfix">
+
+         <h4 class="title col-xs-12 col-sm-2 npLR clearfix">SET REPORT DATE </h4>
+            <form class="col-xs-12 col-sm-10 npLR clearfix" name="reportDates" ng-submit="getReport(reportDates)" validate role="form" id="reportSystem">
+                <md-content md-theme="default">
+                    <div class="col-xs-6 col-sm-4 npL dateSetter clearfix">
+                   
+                        <label>START</label>
+                         <input type=date ng-model="start_Date" name="start_Date" />
+                        
+                    </div>
+                    <div class="dateSetter col-xs-6 col-sm-4 npLR clearfix">
+                    <label>END</label>
+                        <input type=date ng-model="end_Date" name="end_Date" />
+                        
+                        
+                    </div>
+                    <div class="col-sm-4 npLR clearfix">
+                    <md-button class="editBtn" type="submit" ng-if="currentReport">
+                        <i class="material-icons md-18 menu-icon">&#xE873;</i>
+                        GENERATE 
+                    </md-button>
+                    <md-button class="editBtn blue" type="button" ng-if="generatedReport" ng-click="generatePrint()">
+                        <i class="material-icons md-18 menu-icon">&#xE8B0;</i>
+                        PRINT 
+                    </md-button>
+                </div>
+                </md-content>
+                
+            </form>
+        </section>
+        <section id="reportContent">
+            <pre ng-if="currentReport != 'transaction'">{{generatedReport}}</pre>
+            <div ng-if="currentReport == 'transaction'" class="clearfix" >
+                <div class="col-xs-6 npLR clearfix report-text" >
+                    <md-radio-group ng-model="data[0]">
+                      <md-radio-button value="{{$index}}" class="reportBtn"  ng-repeat="report in generatedReport track by $index" ng-click="setTransView(report)" >{{report.OrderDate}}  - 
+                        {{report.OrderTime}}</md-radio-button>
+                    </md-radio-group>
+                </div>
+
+                <div class="col-sm-4 npLR clearfix report-receipt" ng-if="transReportView">
+                    <pre>{{transReportView}}</pre>
+                </div>
+            </div>
+            
+        </section>
+    </section>
+
+    </div>

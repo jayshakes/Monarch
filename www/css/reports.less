@@ -1,0 +1,187 @@
+#reportsPage {
+    background-color: #01a38d;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    #sectionType {
+        position: absolute;
+        top: -15px;
+        width: 100%;
+        .typeBtn {
+            padding-top: 20px;
+            color: #025046;
+            float: left;
+            min-width: 50px;
+            margin: 15px 10px 0px 0px;
+            padding: 10px 5px;
+            border-radius: 3px;
+            background-color: #01A38D;
+            &:hover,
+            &:active,
+            &:focus {
+                border: none;
+                outline: none;
+            }
+            .md-container {
+                display: none;
+            }
+            .type-icon {
+                float: left;
+                margin-right: 5px;
+            }
+            p {
+                margin: 0px;
+                float: left;
+                line-height: 23px;
+            }
+        }
+        .typeBtn.md-checked {
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        }
+        .info {
+            color: darken(@primaryColor, 20%);
+            font-size: 14px;
+            width: 130px;
+            float: left;
+            line-height: 15px;
+            padding: 8px 0px 0px 0px;
+            display: inline-block;
+            margin: 12px 0px;
+        }
+    }
+    #pageContent {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        padding: 35px 22px 0 22px;
+        overflow: overlay;
+        border-radius: 3px;
+        min-height: 160px;
+        #reportMenu {
+            background-color: #fff;
+            height: auto;
+            //border: 1px rgb(0, 150, 136) solid;
+            border: 1px white solid;
+            position: relative;
+            margin: 0 0 10px 0;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            border-radius: 3px;
+            padding: 0 10px;
+                z-index: 2;
+            .title {
+                color: #757575;
+                float: left;
+                font-family: "Roboto-bold", sans-serif;
+                line-height: 15px;
+                padding: 0px;
+            }
+            .dateSetter {
+                label {
+                    margin: 12px 10px 12px 0px;
+                    font-family: "Roboto-bold", sans-serif;
+                    text-transform: uppercase;
+                    color: rgba(0, 0, 0, 0.54);
+                }
+                input {
+                    margin: 10px 0px;
+                    border-radius: 3px;
+                    padding: 5px;
+                    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.31);
+                    outline: 0;
+                    border: none;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    width: 100%;
+                }
+            }
+            .editBtn {
+                width: 48%;
+                border-radius: 3px;
+                margin: 15px 0px 15px 0px;
+                display: block;
+                position: relative;
+                padding: 0px;
+                i {
+                    top: 5px;
+                    position: relative;
+                }
+            }
+
+            .editBtn:first-child {
+                   margin-left: 4%;
+            }
+        }
+        #reportContent {
+			position: relative;
+			top: -20px;
+			margin: 0;
+			padding: 30px 10px 10px 10px;
+			max-height: 80%;
+            min-height: 70%;
+			background: rgb(238,238,238);
+			border-radius: 3px;
+
+            .report-text{
+                margin: 0px;
+                    overflow: overlay;
+                 max-height: 450px;
+            }
+            .report-receipt{
+                float: right;
+                border: 1px #bdbdbd solid;
+                position: relative;
+                margin: 0 5px 10px 5px;
+                box-shadow: 0 0px 15px 0 rgba(0,0,0,0.26);
+                border-radius: 3px;
+                padding: 20px;
+                background-color: #FFFFFF;
+
+                pre{
+                        position: relative;
+                overflow: hidden;
+                height: 280px;
+                overflow: overlay;
+                }
+            }
+
+            .reportBtn{
+                margin: 0 0 10px 0;
+                width: 100%;
+                
+                    background: rgba(0,0,0,0.1);
+                padding:12px;
+                border-radius: 3px;
+                    outline: 0;
+                .md-label span{
+                   font-family: "Roboto-bold", sans-serif;
+                }
+                &.md-checked{
+                   background: rgba(0,0,0,0.26);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+/* Medium screen & Biger */
+@media (min-width: @screen-sm) {
+    #reportsPage {
+        #pageContent {
+            #reportMenu {
+                .dateSetter {
+                    input {
+                        width: 60%;
+                    }
+                }
+                .editBtn {
+                    width: auto;
+                    margin: 8px 0px 8px 10px;
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+<div id="mainloader" ng-show="modalShow">
+  <span class="loader-wrap">
+    <md-progress-circular md-mode="indeterminate" class="md-accent md-hue-3" md-diameter="60"></md-progress-circular>
+  </span>
+    
+  </div>
+<div id="loginLogo"><img src="./img/logo.svg" class="img-responsive" /></div>
+
+<section id="login">
+  
+<div class="login-wrap ">
+
+<article id="userLogin" class="col-sm-12 npL">
+<h4 class="title text-center">PLEASE LOG IN</h4>
+<form name="loginForm">
+  <md-input-container>
+    <input name="password" aria-label="pasword" type="password" ng-model="password" id="password"  required  minlength="4">
+    <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$dirty">
+      <div ng-message="required">This is required!</div>
+      <div ng-message="md-maxlength">That's too long!</div>
+      <div ng-message="minlength">That's too short!</div>
+    </div>
+
+  </md-input-container>
+ <!--  <md-button class="md-raised" ng-click="submit(loginForm);">Enter</md-button> -->
+ <md-button id="formSubmit" ng-click="submit(loginForm)" class="md-raised md-primary hide">Enter</md-button> 
+
+  
+
+<!--  <md-button class="lost-pass" >Forgot Password?</md-button> -->
+</form>
+<section id="dialpad">
+  
+   <div data-ng-keypad="numeric" data-auto-close="true" data-ng-draggable class="numpad">
+        <div ng-include="" src="'./views/partials/numeric_login.html'"></div>
+    </div>
+</section>
+</article>
+
+
+
+</div>
+</section>

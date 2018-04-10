@@ -1,0 +1,95 @@
+<md-progress-linear md-mode="indeterminate" ng-if="showProgress" id="viewProgress"></md-progress-linear>
+<div id="menu-content" class="payment-page">
+    <div class="row">
+        <div class="col-xs-1 npL">
+            <div class="left-wrap clearfix">
+                <!--<md-button id="pagebtns" class="" ng-click="backBtn()"><i class="material-icons md-36 back-btn">&#xE5C4;</i>
+                </md-button>-->
+                <a class="backBtn" href="#/main"> <i class="material-icons md-36">&#xE5C4;</i></a>
+            </div>
+        </div>
+        <div class="col-xs-11">
+            <div class="right-wrap clearfix">
+                <article id="paymentType" class="animated slideOutleft"> 
+                    <md-radio-group ng-model="defaultPayMethod">
+                        <md-radio-button value="{{paymentType.PaymentType_ID}}" class="payTypeBtn" ng-repeat="paymentType in paymentTypes" ng-click="payMethod(paymentType)">
+                            <i class="material-icons pay-icon" ng-if="paymentType.PaymentType_ID === 1">&#xE227;</i>
+                            <i class="material-icons md-24 pay-icon" ng-if="paymentType.PaymentType_ID === 2">&#xE870;</i>
+                            <i class="material-icons md-24 pay-icon" ng-if="paymentType.PaymentType_ID === 3">&#xE870;</i>
+                            <p>{{paymentType.PaymentType_Name}}</p>
+                        </md-radio-button>
+                    </md-radio-group>
+                    <span class="info" id="info" ng-if="chosenMethod == null">Please select a payment method</span> 
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="payment">
+    <article id="checkOut" class="animated slideOutleft col-xs-10 col-xs-offset-1">
+        <div class="row">
+            <div class="checkOut-wrap">
+                <div class="col-sm-5 col-lg-4 npL" id="transaction">
+                    <div class="amount " id="total">
+                        <span>$</span>
+                        <p>{{totalPrice | number : fractionSize}}</p>
+                        <h3 class="sub-title">PAID ${{amountPaid |  number : fractionSize}}</h3>
+                    </div>
+                    <form id="received" name="payForm">
+                        <h3 class="sub-title">RECEIVED</h3>
+                        <input type="number" placeholder="$ " required ng-model="payValue" ng-keyup="balance(payValue)" />
+                    </form>
+                    <div class="amount" id="change">
+                        <h3 class="sub-title">{{amountOwedText}}{{totalBalance |  number : fractionSize }}</h3>
+                    </div>
+                    <div class="btn-wrap col-sm-12">
+                        <md-button class="md-raised payBtn" onclick="ProcessPayment()"> 
+                            <span>ENTER</span><i class="material-icons md-24 cheque-icon">done</i>
+                        </md-button>
+                        <md-button class="md-raised payBtn" ng-click="cancelPay()">
+                            <span>CANCEL </span><i class="material-icons md-24 cheque-icon">close</i>
+                        </md-button>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-4 npLR" id="payPad">
+                    <div data-ng-keypad="numeric" data-auto-close="true" data-ng-draggable class="numpad">
+                        <div ng-include="" src="'./views/partials/numeric_pay.html'"></div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-4 npLR">
+                
+                    <div id="cart-list">
+                        <div ng-include="" src="'./views/partials/item.html'">
+                        </div>
+                        <p class="scroll-info" ng-show="cartItems.length > 4">scroll to see more items<i class="material-icons">arrow_drop_down</i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<script type="text/ng-template" id="bottom-sheet">
+    <md-dialog ng-cloak id="bottom-sheet">
+        <md-dialog-content style="max-width:800px;max-height:810px; ">
+            <div class="md-dialog-content">
+                <div class="text-center info-wrap">
+                    <h1 class="info-text">CHANGE DUE ${{totalBalance}}</h1>
+                    <md-button class="md-grid-item-content" ng-click="finishAll();hide('finish')">
+                        <i class="material-icons md-24 menu-icon">done_all</i>
+                        <p> FINISH </p>
+                    </md-button>
+                    <md-button class="md-grid-item-content" ng-click="customerInfo();hide('email')">
+                        <i class="material-icons md-24 menu-icon">email</i>
+                        <p> Email</p>
+                    </md-button>
+                    <md-button class="md-grid-item-content" onclick="PrintReceipt();resetAll()" ng-click="hide('print')">
+                        <i class="material-icons md-24">receipt</i>
+                        <p> Print</p>
+                    </md-button>
+                </div>
+            </div>
+        </md-dialog-content>
+    </md-dialog>
+</script>

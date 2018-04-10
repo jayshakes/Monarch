@@ -1,0 +1,307 @@
+<!--=================================================================================
+=====================================================================================
+CREATE SECTION
+==================================================================================-->
+<md-radio-group ng-model="prodActions" class="actionBtn create">
+      <md-radio-button value="CREATE" >CREATE</md-radio-button>
+</md-radio-group>
+
+<!-- {"Item_ID":1,"Item_Code":"1","Item_Name":"Misc","Item_Name2":"","Img":"","Amount":12.99,"Barcode":"998877665544"} -->
+
+<section ng-if="prodActions == 'CREATE'" class="action-wrap" id="create">
+    <!--  <p> PRODUCT CREATE</p> -->
+    <form name="createItem" ng-submit="newItemSubmit(createItem)" validate role="form">
+        <md-content md-theme="default">
+            <div class="col-sm-6 npLR">
+                <md-input-container class="md-icon-float">
+                    <!-- Use floating label instead of placehoasdlder -->
+                    <label>Item Name</label>
+                    <md-icon class="material-icons">label</md-icon>
+                    <input data-ng-model="newItem.Item_Name" name="Item_Name" type="text" required>
+                </md-input-container>
+                <md-input-container class="md-icon-float">
+                    <!-- Use floating label instead of placehoasdlder -->
+                    <label>Secondary Name</label>
+                    <md-icon class="material-icons">label_outline</md-icon>
+                    <input data-ng-model="newItem.Item_Name2" name="Item_Name2" type="text">
+                </md-input-container>
+                <md-input-container class="md-icon-float md-icon-right">
+                    <label>PRICE</label>
+                    <md-icon class="material-icons">attach_money</md-icon>
+                    <input data-ng-model="newItem.Amount" name="Amount" type="number" step="1" required>
+                </md-input-container>
+            </div>
+            <div class="col-sm-6 npLR">
+                <md-input-container class="md-icon-float">
+                    <!-- Use floating label instead of placehoasdlder -->
+                    <label>Stock</label>
+                    <md-icon class="material-icons">label_outline</md-icon>
+                    <input data-ng-model="newItem.Current_Stock" name="Current_Stock" type="number" step="1" min="1">
+                </md-input-container>
+            </div>
+            <div class="col-sm-6 npLR">
+                <md-input-container class="md-icon-float">
+                    <!-- Use floating label instead of placehoasdlder -->
+                    <label>Barcode</label>
+                    <md-icon class="material-icons">label_outline</md-icon>
+                    <input data-ng-model="newItem.Barcode" name="Barcode" type="text">
+                </md-input-container>
+            </div>
+
+            <div class="col-sm-6 npLR">
+                <div class="selectSetter">
+                    <label class="icon">
+                        <i class="material-icons" style="color:{{newItemColor}}">&#xE40A;</i>
+                    </label>
+                    <select name="newItemColor" ng-model="newItemColor">
+                        <option value="" disabled hidden>Please select a color</option>
+                        <option ng-repeat="color in colorSet" ng-value="color.Color" style="color:{{color.Color}}">{{color.Color | uppercase}}</option>
+                    </select>
+                    <hr/>
+                </div>
+            </div>
+            
+            
+            
+            <div class="col-sm-12 npLR">
+                <div class="selectSetter">
+                    <label class="icon-img">
+                        <img ng-if="newItemImg" ng-src="{{newItemImg}}"/>
+                        <img ng-if="!newItemImg" ng-src="./img/placeholder_thumb.png"/>
+                    </label>
+                    <select name="newItemImg" ng-model="newItemImg">
+                        <option value="" disabled hidden>Please select an image</option>
+                        <option ng-repeat="img in imageSet" ng-value="img.src" ng-selected="cat.Tab_ID == 1"> {{img.Name | uppercase}}</option>
+                    </select>
+                    <hr/>
+                </div>
+            </div>
+            
+
+            
+            <div class="col-sm-12 npLR">
+                <div class="selectSetter">
+                    <label class="icon">
+                        <i class="material-icons">label_outline</i>
+                    </label>
+                    <select name="newItemCategory" ng-model="newItemCategory">
+                        <option value="" disabled selected hidden>Please select a category</option>
+                        <option ng-repeat="cat in allTabs" ng-value="cat.Tab_ID" ng-selected="cat.Tab_ID == 1"> {{cat.Tab_Name | uppercase}}</option>
+                    </select>
+                    <hr/>
+                </div>
+            </div>
+            
+            
+            <div class="col-sm-12 npLR">
+                <md-input-container class="md-icon-float textarea">
+                    <!-- Use floating label instead of placehoasdlder -->
+                    <label>Notes</label>
+                    <md-icon class="material-icons">mode_edit</md-icon>
+                    <!--  <input data-ng-model="Notes" name="Notes" type="text"> -->
+                    <textarea ng-model="newItem.Notes" name="Notes" columns="1"></textarea>
+                    <span class="cover"></span>
+                </md-input-container>
+            </div>
+            <hr/>
+
+            <div class="col-sm-12 npLR">
+                <div class="selectSetter chipSelector col-sm-2">
+                    <select ng-model="detail" ng-change="addCurrentOptionItem(detail); detail = null" data-ng-options="detail.Title for detail in templateList">
+                        <option value="" disabled hidden>ADD DETAIL</option>
+                    </select>
+                </div>
+                <div class="chip-wrap no-input col-sm-10">
+                    <md-chips ng-model="currentItemDetailList" name="Options" readonly="readonly">
+                        <md-chip-template>
+                            <strong>{{$chip.Title}}</strong>
+                        </md-chip-template>
+                    </md-chips>
+                </div>
+            </div>
+
+        </md-content>
+        <md-button class="md-raised formBtn" type="button" ng-click="newItemReset()"> <i class="material-icons md-18 menu-icon">clear</i>CANCEL</md-button>
+        <md-button class="md-raised formBtn" type="submit"> <i class="material-icons md-18 menu-icon">done</i>CREATE</md-button>
+    </form>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!--=================================================================================
+=====================================================================================
+EDIT SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="prodActions" class="actionBtn edit">
+    <md-radio-button value="EDIT" >EDIT </md-radio-button>
+</md-radio-group>
+
+<section ng-if="prodActions == 'EDIT'"class="action-wrap" id="edit">
+
+    <form name="editItemForm" ng-submit="editItemSubmit(editItemForm)" validate role="form">
+
+        <md-content md-theme="default">
+            <h4 class="form-title">SELECT AN ITEM TO EDIT</h4>
+            <article ng-if="!itemToEdit" class="clearfix list" >
+                <md-button ng-repeat="product in allProducts" ng-click="editItemSelected(product)" class="col-sma-12">
+                    <b>{{product.Item_Name}}</b> -
+                    ${{product.Amount}}
+                </md-button>
+            </article>
+
+            <article ng-if="itemToEdit" class="clearfix ">
+
+                <div class="col-sm-6 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>Item Name</label>
+                        <md-icon class="material-icons">label</md-icon>
+                        <input data-ng-model="editItem.new_Name" name="new_Name" type="text" required>
+                    </md-input-container>
+
+                    <md-input-container class="md-icon-float">
+                        <label>Secondary Name</label>
+                        <md-icon class="material-icons">label_outline</md-icon>
+                        <input data-ng-model="editItem.new_Name2" name="new_Name2" type="text">
+                    </md-input-container>
+
+                    <md-input-container class="md-icon-float md-icon-right">
+                        <label>PRICE</label>
+                        <md-icon class="material-icons">attach_money</md-icon>
+                        <input data-ng-model="editItem.new_Amount" name="new_Amount" type="number" step="0.01" required>
+                    </md-input-container>
+                </div>
+
+                <div class="col-sm-6 npLR">
+
+                    <md-input-container class="md-icon-float">
+                        <label>Barcode</label>
+                        <md-icon class="material-icons">label_outline</md-icon>
+                        <input data-ng-model="editItem.new_Barcode" name="new_Barcode" type="text">
+                    </md-input-container>
+                </div>
+                <div class="col-sm-6 npLR">
+                    <md-input-container class="md-icon-float textarea">
+                        <label>Notes</label>
+                        <md-icon class="material-icons">mode_edit</md-icon>
+                        <textarea ng-model="editItem.new_Notes" name="new_Notes" columns="1"></textarea>
+                        <span class="cover"></span>
+                    </md-input-container>
+                </div>
+
+
+
+                <div class="col-sm-6 npLR">
+                    <div class="selectSetter">
+                        <label class="icon">
+                            <i class="material-icons" style="color:{{editItemColor}}">&#xE40A;</i>
+                        </label>
+                        <select name="editItemColor" ng-model="editItemColor">
+                            <option value="" disabled selected>Select a color</option>
+                            <option ng-repeat="color in colorSet" ng-value="color.Color" ng-selected="color.Color = editItemColor" style="color:{{color.Color}}">{{color.Color | uppercase}}</option>
+                        </select>
+                        <hr/>
+                    </div> 
+                </div>
+
+                <div class="col-sm-12 npLR">
+                    <div class="selectSetter">
+                        <label class="icon-img">
+                            <img ng-src="{{editItemImg}}"/>
+                        </label>
+
+                        <select name="editItemImg" ng-model="editItemImg">
+                            <option value="" disabled selected>Select an image</option>
+                            <option ng-repeat="img in imageSet" ng-value="img.src" ng-selected="img.src = editItemImg"> {{img.Name | uppercase}}</option>
+                        </select>
+                        <hr/>
+                    </div> 
+                </div>
+
+                <div class="col-sm-12 npLR">
+                    <div class="selectSetter">
+
+                        <label class="icon">
+                            <i class="material-icons">&#xE8E6;</i>
+                        </label>
+
+                        <select name="editItemCategory" ng-init="somethingHere = allTabs[editItemCategory]" ng-model="somethingHere" ng-options="Tab.Tab_Name for Tab in allTabs">
+                            <!-- <option value="" disabled selected >Select a category {{editItemCategory}}</option>  -->
+                        </select>
+                       
+                        <hr/>
+                    </div>
+                </div>
+                 <div class="col-sm-12 npLR">
+                <md-input-container class="md-icon-float">
+                    <!-- Use floating label instead of placehoasdlder -->
+                    <label>Stock</label>
+                    <md-icon class="material-icons">label_outline</md-icon>
+                    <input data-ng-model="editItem.Current_Stock" name="Current_Stock" type="number" step="1" min="1">
+                </md-input-container>
+            </div>
+
+
+                
+
+        
+
+            </article>
+        </md-content>
+        <div class="actionBtn--wrap">
+            <md-button class="md-raised formBtn" type="button" ng-click="editItemReset()">
+                <i class="material-icons md-18 menu-icon">clear</i>CANCEL
+            </md-button>
+            <md-button class="md-raised formBtn" type="submit">
+                <i class="material-icons md-18 menu-icon">done</i>SAVE
+            </md-button>
+        </div>
+    </form>
+
+</section>
+
+
+<!--=================================================================================
+=====================================================================================
+REMOVE SECTION
+==================================================================================-->
+<md-radio-group ng-model="prodActions" class="actionBtn remove">
+    <md-radio-button value="REMOVE">REMOVE</md-radio-button>
+</md-radio-group>
+
+    <section ng-if="prodActions == 'REMOVE'" class="action-wrap" id="remove">
+    <form name="removeItemForm" ng-submit="removeItemSubmit(removeItemForm)" validate role="form">
+        <md-content md-theme="default">
+        
+            <div class="col-sm-12 npLR">
+                <h2 class="title">Please scroll and select an item to delete</h2>
+                <div class="removeItem clearfix" ng-repeat="product in allProducts">
+                    <md-checkbox ng-change='removeItemSet(product, state)' ng-model="state.done" name="{{product.Item_Name}}" aria-label="Checkbox 1">
+                        <h2 class="name"><b>${{product.Amount}}</b> {{product.Item_Name}} </h2>
+                    </md-checkbox>
+                  <!--   <p class="color col-xs-6 col-sm-3">Color <span style="background-color:{{product.Color}}"> {{product.Color}} </span></p>
+                    <p class="img col-xs-6 col-sm-3">Image <b>{{product.Img}}</b> <img ng-src="{{product.Img}}" /></p>
+                    <p class="barcode col-xs-6 col-sm-3">Barcode <b>{{product.Barcode}}</b></p>
+                    <p class="tab col-xs-6 col-sm-3">Tab <b>{{product.Tab}}</b> </p> -->
+                    <p class="notes col-xs-12 col-sm-12">Notes <b>{{product.Notes}}</b> </p>
+                </div>
+            </div>
+        </md-content>
+        <div class="actionBtn--wrap">
+         <!--    <md-button class="md-raised formBtn" type="button" ng-click="removeItemReset()"> <i class="material-icons md-18 menu-icon">clear</i>CANCEL</md-button> -->
+            <md-button class="md-raised formBtn" type="submit"> <i class="material-icons md-18 menu-icon">done</i>Remove</md-button>
+        </div>
+</form>
+</section>
+
+<!-- <md-radio-group ng-model="prodActions" class="actionBtn ">
+    <md-radio-button value="XTR">REMOVE</md-radio-button>
+</md-radio-group> -->
+

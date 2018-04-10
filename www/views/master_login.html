@@ -1,0 +1,58 @@
+
+<section id="login">
+  
+<div class="login-wrap ">
+<img src="./img/logo.svg" class="img-responsive" id="logo" />
+<article id="userLogin" class="col-sm-12 npL hide">
+<h4 class="title text-center">PLEASE LOG IN</h4>
+<form name="loginForm">
+  <md-input-container>
+    <input name="password" type="password" ng-model="password" id="password"  required  minlength="4">
+    <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$dirty">
+      <div ng-message="required">This is required!</div>
+      <div ng-message="md-maxlength">That's too long!</div>
+      <div ng-message="minlength">That's too short!</div>
+    </div>
+
+  </md-input-container>
+ <!--  <md-button class="md-raised" ng-click="submit(loginForm);">Enter</md-button> -->
+ <md-button id="formSubmit" ng-click="submit(loginForm)" class="md-raised md-primary hide">Enter</md-button> 
+
+  
+
+<!--  <md-button class="lost-pass" >Forgot Password?</md-button> -->
+</form>
+<section id="dialpad">
+  
+   <div data-ng-keypad="numeric" data-auto-close="true" data-ng-draggable class="numpad">
+        <div ng-include="" src="'./views/partials/numeric_login.html'"></div>
+    </div>
+</section>
+</article>
+
+<article id="masterLogin" class="col-sm-12 npL">
+<h4 class="title text-center">PLEASE INITIALISE THE APP</h4>
+<form name="masterLoginForm" novalidate>
+     <md-input-container>
+          <label>Master Name</label>
+          <input type="text" name="user" aria-label="user" ng-model="form.user" required />
+        </md-input-container>
+
+   <md-input-container>
+          <label>Master Password</label>
+          <input type="password" name="password" aria-label="password" ng-model="form.password" required />
+        </md-input-container>
+ <!--  <md-button class="md-raised" ng-click="submit(loginForm);">Enter</md-button> -->
+ <md-button id="masterSubmit" ng-click="submit(masterLoginForm)" class="md-raised ">Enter</md-button> 
+
+
+<!--  <md-button class="lost-pass" >Forgot Password?</md-button> -->
+</form>
+
+</article>
+
+
+
+
+</div>
+</section>

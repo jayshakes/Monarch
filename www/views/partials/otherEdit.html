@@ -1,0 +1,37 @@
+<!--=================================================================================
+=====================================================================================
+CREATE SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="userAction" class="actionBtn create">
+    <md-radio-button value="CREATE"> CREATE </md-radio-button>
+</md-radio-group>
+<section ng-if="userAction == 'CREATE'" class="action-wrap" id="create">
+    <p> OTHER CREATE</p>
+</section>
+
+<!--=================================================================================
+=====================================================================================
+EDIT SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="userAction" class="actionBtn edit">
+    <md-radio-button value="EDIT"> EDIT </md-radio-button>
+</md-radio-group>
+<section ng-if="userAction == 'EDIT'" class="action-wrap" id="edit">
+    <p> OTHER EDIT</p>
+</section>
+
+<!--=================================================================================
+=====================================================================================
+REMOVE SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="userAction" class="actionBtn remove">
+    <md-radio-button value="REMOVE"> REMOVE </md-radio-button>
+</md-radio-group>
+<section ng-if="userAction == 'REMOVE'" class="action-wrap" id="remove">
+    <p> OTHER REMOVE</p>
+</section>
+
+

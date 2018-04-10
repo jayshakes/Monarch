@@ -1,0 +1,267 @@
+<!--=================================================================================
+=====================================================================================
+CREATE SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="userAction" class="actionBtn create">
+    <md-radio-button value="CREATE">PRINTER</md-radio-button>
+</md-radio-group>
+<section ng-if="userAction == 'CREATE'" class="action-wrap" id="create" novalidate>
+    <form name="addPrinter" ng-submit="addPrinterSubmit(addPrinter)" validate role="form" id="addPrinter">
+        <md-content md-theme="default">
+            <h4 class="form-title">ADD PRINTER</h4>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>Printer Name</label>
+                        <md-icon class="material-icons">&#xE8E6;</md-icon>
+                        <input name="PrinterName" ng-model="addPrinterInfo.PrinterName"  type="text" required>
+                    </md-input-container>
+                </div>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>IP</label>
+                        <md-icon class="material-icons">&#xE8C3;</md-icon>
+                        <input name="IP" ng-model="addPrinterInfo.IP"  type="text" required>
+                    </md-input-container>
+                </div>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>PORT</label>
+                        <md-icon class="material-icons">&#xE886;</md-icon>
+                        <input name="Port" ng-model="addPrinterInfo.Port" type="number" required>
+                    </md-input-container>
+                </div>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>Printer Header</label>
+                        <md-icon class="material-icons">&#xE8E6;</md-icon>
+                        <input data-ng-model="addPrinterInfo.Header" name="Header" type="text">
+                    </md-input-container>
+                </div>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>Printer Sub Header</label>
+                        <md-icon class="material-icons">&#xE8E6;</md-icon>
+                        <input data-ng-model="addPrinterInfo.SubHeader"  name="SubHeader" type="text">
+                    </md-input-container>
+                </div>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>Printer Footer</label>
+                        <md-icon class="material-icons">&#xE8E6;</md-icon>
+                        <input data-ng-model="addPrinterInfo.Footer" name="Footer" type="text">
+                    </md-input-container>
+                </div>
+                <div class="col-sm-12 npLR">
+                    <div class="selectSetter">
+                        <label class="icon">
+                            <i class="material-icons">label_outline</i>
+                        </label>
+                        
+                        <select name="Type" ng-model="addPrinterInfo.Type" required>
+                            <option value="" disabled hidden >Please select a printer</option>
+                            <option ng-repeat="type in printerType" ng-selected="{{addPrinterInfo.Type == type.Name}}" value="{{type.Name}}" >Printer Type:  {{type.Name}} </option>
+                        </select>
+                        <hr/>
+                    </div>
+                </div>
+                
+           </md-content>
+
+        <div class="actionBtn--wrap">
+            <md-button class="md-raised formBtn" type="submit">
+                <i class="material-icons md-18 menu-icon">done</i>SAVE
+            </md-button>
+            <md-button class="md-raised formBtn" type="button" ng-click="clearAddPrinter(addPrinter)">
+                <i class="material-icons md-18 menu-icon">&#xE14C;</i>CLEAR
+            </md-button>
+        </div>
+    </form>
+</section>
+
+<!--=================================================================================
+=====================================================================================
+EDIT SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="userAction" class="actionBtn edit">
+    <md-radio-button value="EDIT"> EDIT </md-radio-button>
+</md-radio-group>
+<section ng-if="userAction == 'EDIT'" class="action-wrap" id="edit">
+   
+     <form name="printerSubmit" validate role="form" id="setPrinter" novalidate>
+        <md-content md-theme="default">
+            <article class="settings-menu clearfix" >
+                <h4 ng-if="printerToEdit" class="title">EDIT PRINTER</h4>
+                <h4 ng-if="!printerToEdit" class="title">SELECT A PRINTER</h4>
+                <!-- <span ng-if="printerToEdit">
+                    
+                    <md-button class="menuBtn" ng-click="addPrinterItem()">
+                        <i class="material-icons md-18 menu-icon">&#xE876;</i>DELETE PRINTER
+                    </md-button>
+
+                    <md-button class="menuBtn" ng-click="addPrinterItem()">
+                        <i class="material-icons md-18 menu-icon">&#xE876;</i>DELETE PRINTER
+                    </md-button>
+                    <md-button class="menuBtn" ng-click="addPrinterItem()">
+                        <i class="material-icons md-18 menu-icon">&#xE876;</i>DELETE PRINTER
+                    </md-button>
+                </span> -->
+            </article>
+            <article ng-if="!printerToEdit" class="clearfix list" >
+                <md-button type='button' ng-repeat="printer in allPrinters track by $index" ng-click="editSelectedPrinter(printer)" class="col-sm-12">
+                    <span class="l-sm-drk">{{printer.PrinterName}}</span> 
+                    <b>IP:{{printer.IP}} - PORT:{{printer.Port}} </b>
+                </md-button>
+            </article>
+            
+            
+            <article class=" clearfix" ng-if="printerToEdit">
+                <input data-ng-model="printerToEdit.PrinterID" ng-value="PrinterSetting.PrinterID" name="PrinterID" type="text" required hidden>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>Printer Name</label>
+                        <md-icon class="material-icons">&#xE8E6;</md-icon>
+                        <input data-ng-model="printerToEdit.PrinterName" ng-value="PrinterSetting.PrinterName" name="PrinterName" type="text" required>
+                    </md-input-container>
+                </div>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>IP</label>
+                        <md-icon class="material-icons">&#xE8C3;</md-icon>
+                        <input data-ng-model="printerToEdit.IP" ng-value="PrinterSetting.IP" name="IP" type="text" required>
+                    </md-input-container>
+                </div>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>PORT</label>
+                        <md-icon class="material-icons">&#xE886;</md-icon>
+                        <input data-ng-model="printerToEdit.Port" ng-value="PrinterSetting.Port" name="Port" type="text" required>
+                    </md-input-container>
+                </div>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>Printer Header</label>
+                        <md-icon class="material-icons">&#xE893;</md-icon>
+                        <input data-ng-model="printerToEdit.Header" ng-value="PrinterSetting.Header" name="Header" type="text">
+                    </md-input-container>
+                </div>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>Printer Sub Header</label>
+                        <md-icon class="material-icons">&#xE893;</md-icon>
+                        <input data-ng-model="printerToEdit.SubHeader" ng-value="PrinterSetting.SubHeader" name="SubHeader" type="text">
+                    </md-input-container>
+                </div>
+                <div class="col-sm-4 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>Printer Footer</label>
+                        <md-icon class="material-icons">&#xE893;</md-icon>
+                        <input data-ng-model="printerToEdit.Footer" ng-value="PrinterSetting.Footer" name="Footer" type="text">
+                    </md-input-container>
+                </div>
+                
+                <div class="col-sm-12 npLR">
+                    <div class="selectSetter">
+                        <label class="icon">
+                            <i class="material-icons">label_outline</i>
+                        </label>
+                        <select name="Type" ng-model="printerToEdit.Type" required>
+                            <option ng-repeat="type in printerType" ng-selected="{{printerToEdit.Type == type.Name}}" value="{{type.Name}}" >Printer Type:  {{type.Name}} </option>
+                        </select>
+                        <hr/>
+                    </div>
+                </div><!-- <i class="material-icons">&#xE893;</i> -->
+
+                
+            </article>
+           
+
+
+           </md-content>
+
+        <div class="actionBtn--wrap" ng-if="printerToEdit" >
+            <md-button ng-if="printerToEdit" class="md-raised formBtn" type="button" ng-click="clearSelectedPrinter()">
+                <i class="material-icons md-18 menu-icon">&#xE14C;</i>CANCEL
+            </md-button>
+            <md-button ng-if="printerToEdit && !deletePrinterConfirm" class="md-raised formBtn" type="submit"  ng-click="editPrinterSubmit(printerSubmit)">
+                <i class="material-icons md-18 menu-icon">&#xE876;</i>SAVE
+            </md-button>
+             <md-button ng-if="printerToEdit && !deletePrinterConfirm" class="md-raised formBtn" type="submit"  ng-click="deletePrinter()">
+                <i class="material-icons md-18 menu-icon">&#xE14C;</i>DELETE
+            </md-button>
+
+            <md-button ng-if="printerToEdit && deletePrinterConfirm" class="md-raised formBtn alertBtn" type="button"  ng-click="confirmDeletePrinter()">
+                <i class="material-icons md-18 menu-icon">&#xE877;</i>CONFIRM DELETE
+            </md-button>
+        </div>
+    </form>
+</section>
+
+<!--=================================================================================
+=====================================================================================
+EDIT SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="userAction" class="actionBtn remove">
+    <md-radio-button value="EFTPOS"> EFTPOS </md-radio-button>
+</md-radio-group>
+<section ng-if="userAction == 'EFTPOS'" class="action-wrap" id="edit">
+    <form name="setEftpos" validate role="form" id="setEftpos">
+        <md-content md-theme="default">
+            <h4 class="form-title">EFTPOS SETTINGS</h4>
+            <div class="col-sm-6 npLR">
+            <md-input-container class="md-icon-float">
+                <label>IP</label> 
+                <md-icon class="material-icons">&#xE8C3;</md-icon>
+                <input data-ng-model="EftposSetting.IP" ng-value="EftposSetting.IP" name="IP" type="text" required>
+            </md-input-container>
+                </div>
+                <div class="col-sm-6 npLR">
+
+            <md-input-container class="md-icon-float">
+                <label>PORT</label>
+                <md-icon class="material-icons">&#xE886;</md-icon>
+                <input data-ng-model="EftposSetting.Port" name="Port" ng-value="EftposSetting.Port" type="text">
+            </md-input-container>
+             </div>
+            
+            <div class="col-sm-12 npLR">
+                <div class="selectSetter">
+                    <label class="icon">
+                        <i class="material-icons">&#xE1B1;</i>
+                    </label>
+                    <select name="Eftpos" ng-model="EftposSetting.Type">
+                        <option value="" disabled selected>Please select eftpos</option>
+                        <option ng-repeat="pos in allEftpos" ng-value="pos.Eftpos_ID" ng-selected="pos.Eftpos_Name == EftposSetting.Type"> {{pos.Eftpos_Name | uppercase}}</option>
+                    </select>
+                    <hr/>
+                </div>
+            </div>
+           </md-content>
+
+        <div class="actionBtn--wrap">
+          
+            <md-button class="md-raised formBtn" type="button" ng-click="setEftposSubmit(setEftpos)">
+                <i class="material-icons md-18 menu-icon">done</i>SAVE
+            </md-button>
+        </div>
+    </form>
+</section>
+
+
+
+
+
+<!--=================================================================================
+=====================================================================================
+REMOVE SECTION
+==================================================================================-->
+
+<!--<md-radio-group ng-model="userAction" class="actionBtn remove">
+    <md-radio-button value="REMOVE"> REMOVE </md-radio-button>
+</md-radio-group>
+
+<section ng-if="userAction == 'REMOVE'" class="action-wrap" id="remove">
+    
+</section>-->

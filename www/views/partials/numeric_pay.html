@@ -1,0 +1,21 @@
+<div>
+	<div class="button-wrapper">
+	<button data-ng-key="7" class="col-sm-4">7</button>
+		<button data-ng-key="8" class="col-sm-4">8</button>
+		<button data-ng-key="9" class="col-sm-4">9</button>
+		<button data-ng-key="$10" class="col-sm-4">$10</button>
+		<button data-ng-key="4" class="col-sm-4">4</button>
+		<button data-ng-key="5" class="col-sm-4">5</button>
+		<button data-ng-key="6" class="col-sm-4">6</button>
+		<button data-ng-key="$20" class="col-sm-4">$20</button>
+        <button data-ng-key="1" class="col-sm-4">1</button>
+		<button data-ng-key="2" class="col-sm-4">2</button>
+		<button data-ng-key="3" class="col-sm-4">3</button>
+		<button data-ng-key="$50" class="col-sm-4">$50</button>
+		<button ng-click="clearPad()" data-ng-key="[CLEAR]" class="smaller col-sm-4">C</button>
+		<button data-ng-key="0" class="col-sm-4">0</button>
+		<button data-ng-key="." class="col-sm-4">.</button>
+		<button data-ng-key="$100" class="col-sm-4">$100</button>
+        <button ng-disabled="totalBalance < 0 || payValue" class="express" data-ng-key="{{totalBalance | number}}" >Express pay <i >{{totalBalance | currency}}</i></button>
+	</div>
+</div>

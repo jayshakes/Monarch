@@ -1,0 +1,41 @@
+
+<article class="opt-group" ng-repeat="option in selectedItemOptions">
+    <!-- IF RADIO OPTION -->
+    <div class="radio_opt" ng-if="option.Type == 1" class="action-wrap">
+        <h4 class="opt-title">{{option.Title}}  - ${{option.Cost | number:2}}</h4>
+        <div class="opt-wrap">
+            <md-radio-group ng-model="option.Default">
+                <md-radio-button ng-value="-1" class="opt-radio-btn" ng-click="option.Cost = 0"> None</md-radio-button>
+              <md-radio-button ng-value="$index" class="opt-radio-btn" ng-click="option.Cost = opt.amount; singleOptionSelect(option,$index); option.Default = $index" ng-repeat="opt in option.Options"> {{opt.name}}</md-radio-button>
+            </md-radio-group>
+        </div>
+    </div>
+
+    <div class="count_opt" ng-if="option.Type == 3" class="action-wrap">
+        <h4 class="opt-title">{{option.Title }} - ${{ option.Cost | number:2}} - {{count}} @ {{ option.Amount | number:1}}<span class="unit">{{option.Unit}}</span></h4>
+        <div class="opt-wrap">
+            <div class="clearfix counter-btn">
+                <md-button class="col-xs-4 first" ng-click="count = count + option.Step ; option.Count = count; option.Cost = count*option.Amount " ng-disabled="count >= option.Max"><span>+</span></md-button>
+                <input disabled type="number" placeholder="{{option.Min}}" step="{{option.Step}}" class="col-xs-4 middle" ng-init="count = option.Count" ng-model="count" min="{{option.Min}}" ng-max="{{option.max}}" />
+                <md-button class="col-xs-4 last" ng-click="count = count - option.Step; option.Count = count ; option.Cost = count*option.Amount; " ng-disabled="count <= 0"><span>-</span></md-button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="multi_opt" ng-if="option.Type == 2" class="action-wrap">
+        <h4 class="opt-title">{{option.Title}} - ${{option.Cost | number:2}}</h4>
+        <div class="opt-wrap">
+                   <md-checkbox  ng-click="opt.state = !opt.state; calculateMulti(option.Id, opt.amount, opt.state,$index)" ng-checked="opt.state"  class="opt-multi-btn" ng-repeat="opt in option.Options">
+            {{ opt.name }} <!-- data-ng-model="option.id + $index" -->
+        </md-checkbox>
+         
+         
+            <!-- <div ng-repeat="opt in option.Options">2</div> -->
+        </div>
+
+    </div>
+
+
+</article>

@@ -1,0 +1,68 @@
+<my-loader ng-if="modalShown" class="shallow"></my-loader>
+<div id="inventoryPage">
+
+<md-progress-linear md-mode="indeterminate" ng-if="showProgress" id="viewProgress"></md-progress-linear>
+<div id="menu-content">
+    <div class="row">
+        <div class="col-xs-1 npL">
+            <div class="left-wrap clearfix">
+                <md-button id="pagebtns" class="animated slideInLeft" ng-click="backBtn()"><i class="material-icons md-36 back-btn">arrow_back</i>
+                </md-button>
+            </div>
+        </div>
+        <div class="col-xs-11 npL">
+            <div class="right-wrap clearfix">
+                <article id="sectionType" class="animated slideOutleft"> 
+                      <md-radio-group ng-model="sectionView">
+                        <md-radio-button value="product" class="typeBtn" ng-click="currentView('product')">
+                            <i class="material-icons md-24 type-icon">shopping_cart</i>
+                            <p>PRODUCT</p>
+                        </md-radio-button>
+                        <md-radio-button value="details" class="typeBtn" ng-if="admin" ng-click="currentView('details')">
+                            <i class="material-icons md-24 type-icon">&#xE41D;</i>
+                            <p>ITEM-DETAILS</p>
+                        </md-radio-button>
+                        <md-radio-button value="category" class="typeBtn" ng-click="currentView('category')">
+                            <i class="material-icons md-24 type-icon">shop</i>
+                            <p>CATEGORY</p>
+                        </md-radio-button>
+                        <md-radio-button value="user" class="typeBtn" ng-if="admin" ng-click="currentView('user')">
+                            <i class="material-icons md-24 type-icon">person</i>
+                            <p>USER</p>
+                        </md-radio-button>
+                        <md-radio-button value="system" class="typeBtn" ng-if="admin" ng-click="currentView('system')">
+                            <i class="material-icons md-24 type-icon">&#xE8B9;</i>
+                            <p>SYSTEM</p>
+                        </md-radio-button>
+                        
+                    </md-radio-group>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="viewPage">
+    <div class="animated fadeIn">
+        <section id="productView" ng-if="chosenView == 'product'" class="view-wrap col-xs-10 col-xs-offset-1">
+            <div ng-include="" src="'./views/partials/productEdit.html'"></div>
+        </section>
+        <section id="categoryView" ng-if="chosenView == 'category'" class="view-wrap col-xs-10 col-xs-offset-1">
+           <div ng-include="" src="'./views/partials/categoryEdit.html'"></div>
+        </section>
+        <section id="userView" ng-if="chosenView == 'user'" class="view-wrap col-xs-10 col-xs-offset-1">
+            <div ng-include="" src="'./views/partials/userEdit.html'"></div>
+        </section>
+        <section id="systemView" ng-if="chosenView == 'system'" class="view-wrap col-xs-10 col-xs-offset-1">
+            <div ng-include="" src="'./views/partials/systemEdit.html'"></div>
+        </section>
+        <section id="detailsView" ng-if="chosenView == 'details'" class="view-wrap col-xs-10 col-xs-offset-1" >
+            <div ng-include="" src="'./views/partials/detailsEdit.html'"></div>
+        </section>
+    </div>
+</div>
+
+</div>
+

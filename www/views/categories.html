@@ -1,0 +1,84 @@
+
+<section id="categoryBox">
+
+  <md-content>
+    
+  </md-content>
+
+    <md-list-item class="md-3-line" ng-repeat="item in todos">
+      <md-list>
+        <!-- <img ng-src="{{item.face}}" alt="{{item.who}}" class="md-avatar"> -->
+        <div class="md-list-item-text">
+          <h3>{{item.what}}</h3>
+         <!--  <h4>{{item.who}}</h4>
+          <p>
+            {{item.notes}}
+          </p> -->
+        </div>
+        <md-divider inset></md-divider>
+     
+    </md-list>
+ </md-list-item>
+
+    
+   
+
+
+<md-button ng-click="openToast()">
+    Open a Toast!
+  </md-button>
+
+
+
+</section>
+
+<section id="categoryListBox">
+
+
+<a href="" ng-click="callFoo()" class="product" style="background-color:blue;">
+   <span class="dim"></span>
+   <div class="info">
+   <h3 class="name">blue</h3>
+
+     <p class="price">$52</p>
+
+   </div>
+</a>
+
+
+<a href="" ng-click="callFoo()" class="product" style="background-color:red;">
+   <span class="dim"></span>
+   <div class="info">
+   <h3 class="name">red</h3>
+
+     <p class="price">$52</p>
+
+   </div>
+</a>
+
+<a href="" class="product bG" ng-click="addToCart(product)" ng-repeat="product in products" style="background-image:url('./img/steak.jpg');">
+   <span class="dim"></span>
+   <div class="info">
+   <h3 class="name">Product Name long ass name</h3>
+
+     <p class="price">${{product.id}}</p>
+
+   </div>
+
+
+</a>
+
+
+
+
+
+
+  
+</section>
+
+
+
+
+
+
+  

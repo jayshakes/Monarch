@@ -1,0 +1,165 @@
+<!--=================================================================================
+=====================================================================================
+CREATE SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="catAction" class="actionBtn create">
+    <md-radio-button value="CREATE"> CREATE</md-radio-button>
+</md-radio-group>
+
+<section ng-if="catAction == 'CREATE'" class="action-wrap" id="create">
+    <form name="createTab" ng-submit="newTabSubmit(createTab)" validate role="form"> 
+  <md-content md-theme="default">
+<div class="col-sm-12 npLR">
+    <md-input-container class="md-icon-float">
+      <label>Category Name</label>
+      <md-icon class="material-icons">label</md-icon>
+      <input data-ng-model="newTab.Tab_Name" name="Tab_Name" type="text" required>
+    </md-input-container>
+
+    </div>
+
+  </md-content>
+<div class="actionBtn--wrap">
+  <md-button class="md-raised formBtn" type="button" ng-click="newTabReset(newTab)"> <i class="material-icons md-18 menu-icon">clear</i>CANCEL</md-button> 
+  <md-button class="md-raised formBtn" type="submit"> <i class="material-icons md-18 menu-icon">done</i>CREATE</md-button>
+	</div>                     
+    </form>
+</section>
+
+
+<!--=================================================================================
+=====================================================================================
+EDIT SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="catAction" class="actionBtn edit">
+    <md-radio-button value="EDIT"> EDIT </md-radio-button>
+</md-radio-group>
+
+<section ng-if="catAction == 'EDIT'" class="action-wrap" id="edit">
+    <form name="editTabForm" ng-submit="editTabSubmit(editTabForm)" validate role="form"> 
+
+<md-content md-theme="default">
+<h4 class="form-title">SELECT A CATEGORY TO EDIT</h4>
+<article ng-if="!tabToEdit" class="clearfix list">
+  <md-button ng-repeat="Tab in allTabs" ng-click="editTabSelected(Tab)" class="col-sma-12"><b> {{Tab.Tab_Name}} </b> </md-button>
+</article>
+
+<article ng-if="tabToEdit" class="clearfix">
+
+
+<div class="col-sm-12 npLR">
+    <md-input-container class="md-icon-float">
+      <label>Category Name</label>
+      <md-icon class="material-icons">label</md-icon>
+      <input data-ng-model="tabToEdit.Tab_Name" name="Tab_Name" type="text" required>
+    </md-input-container>
+</div> 
+
+</article>
+  </md-content>
+<div class="actionBtn--wrap">
+  <md-button class="md-raised formBtn" type="button" ng-click="editTabReset()"> <i class="material-icons md-18 menu-icon">clear</i>CANCEL</md-button> 
+  <md-button class="md-raised formBtn" type="submit"> <i class="material-icons md-18 menu-icon">done</i>SAVE</md-button>
+	</div>                      
+    </form>
+</section>
+
+
+<!--=================================================================================
+=====================================================================================
+REMOVE SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="catAction" class="actionBtn remove">
+    <md-radio-button value="REMOVE"> REMOVE</md-radio-button>
+</md-radio-group>
+
+
+
+<section ng-if="catAction == 'REMOVE'" class="action-wrap" id="remove" >
+    <form name="removeTabForm" ng-submit="removeTabSubmit(removeTabForm)" validate role="form">
+        <md-content md-theme="default">
+            <div class="col-sm-12 npLR" ng-hide="removeTabConfirmForm">
+                <h2 class="title">Please scroll and select category to remove</h2>
+                <div class="removeTab clearfix" ng-repeat="tab in allTabs">
+                    <md-checkbox ng-change='removeTabSet(tab, state)' ng-model="state.done" name="{{tab.Tab_Name}}" aria-label="Checkbox{{$index}}">
+                        <h2 class="name"><b>#{{tab.Position}}</b> {{tab.Tab_Name}} </h2>
+                    </md-checkbox>
+                </div>
+            </div>
+            <!-- CONFIRM REMOVE BOX -->
+            <div ng-show="removeTabConfirmForm" class="text-center">
+            	<h2>Are you sure you want to remove this category and all its Items</h2>
+            	<md-button class="md-raised md-primary formBtn" ng-click="removeTabConfirmSwitch()" type="button"> <i class="material-icons md-18">clear</i>clear</md-button>
+            	<md-button class="md-raised md-primary formBtn" type="button" ng-click="removeTabConfirm();removeTabConfirmSwitch()"> <i class="material-icons md-18">done</i>Remove</md-button>
+            </div>
+        </md-content>
+        <div class="actionBtn--wrap" ng-hide="removeTabConfirmForm">
+            <!-- <md-button class="md-raised formBtn" type="button" ng-click="removeTabReset()"> <i class="material-icons md-18 menu-icon">clear</i>CANCEL</md-button> -->
+            <md-button class="md-raised formBtn" type="submit" ng-click="removeTabConfirmSwitch()"> <i class="material-icons md-18 menu-icon">done</i>Remove</md-button>
+        </div>
+    </form>
+</section>
+
+
+
+<!--=================================================================================
+=====================================================================================
+ADD TO PRINTER SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="catAction" class="actionBtn btnFour">
+    <md-radio-button value="SETPRINTER"> SET ITM TO PRINTER</md-radio-button>
+</md-radio-group>
+
+
+
+<section ng-if="catAction == 'SETPRINTER'" class="action-wrap" id="remove" >
+    <form name="removeTabForm" ng-submit="removeTabSubmit(removeTabForm)" validate role="form">
+        <md-content md-theme="default" style="min-height: 180px;">
+            <div class="col-sm-12 npLR" ng-hide="removeTabConfirmForm">
+                <h2 class="title" ng-if="!currentPrinter">Please select a printer to add or remove items</h2>
+                <h2 class="title" ng-if="!printerCategoryItems && currentPrinter">Please select a category to add or remove items  - {{currentPrinter.PrinterName}}</h2>
+                <h2 class="title" ng-if="printerCategoryItems">Select items</h2>
+                <section ng-if="!currentPrinter">
+                  <md-button type='button' ng-if="printer.Type !='Receipt'" ng-repeat="printer in allPrinters track by $index" ng-click="setCurrentPrinter(printer)" class="col-sm-12 sectionBtn-wide text-left">
+                    <span class="l-sm-drk">{{printer.PrinterName}}</span> 
+                    <b>IP:{{printer.IP}} - PORT:{{printer.Port}} - TYPE:{{printer.Type}}</b>
+                  </md-button>
+
+                </section>
+                <section ng-if="currentPrinter">
+                
+                    <div class="selectBtn-wide">
+
+                        <select ng-options="Tab.Tab_Name for Tab in allTabs" ng-model="Tab" ng-change="setToPrinterView(Tab)">
+                        <option value="" disabled selected>Select a category</option>
+                        </select> 
+                        <md-button aria-label="menu" ng-click="clearPrinterView()" class="close md-button md-default-theme">
+                          <i class=" material-icons md-18">close</i>
+                        </md-button>
+                    </div>
+               
+
+                    <md-checkbox ng-if="printerCategoryItems"  class="checkList-item clearfix" ng-repeat="item in printerCategoryItems" ng-change="togglePrinterItem(item)" ng-model="item.active" name="{{item.Item_Name}}" aria-label="Checkbox{{$index}}">
+
+                      <p class="name">{{item.Item_Name}}</p>
+                      <p class="l-sm-lght">${{item.Amount | number:2}} </p>
+                      <p class=""><b>STOCK:</b> {{item.Current_Stock}} </p>
+            
+                    </md-checkbox>
+
+
+                </section>
+            </div>
+            <!-- CONFIRM REMOVE BOX -->
+           
+        </md-content>
+        <div class="actionBtn--wrap" ng-hide="removeTabConfirmForm">
+            <md-button class="md-raised formBtn" type="button" ng-click="clearCurrentPrinter()"> <i class="material-icons md-18 menu-icon">&#xE14C;</i>CLEAR</md-button>
+            <md-button class="md-raised formBtn" type="button" ng-click="savePrinterItems()"> <i class="material-icons md-18 menu-icon">done</i>SAVE</md-button>
+        </div>
+    </form>
+</section>

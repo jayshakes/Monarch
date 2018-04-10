@@ -1,0 +1,191 @@
+<!--=================================================================================
+=====================================================================================
+CREATE SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="userAction" class="actionBtn create">
+    <md-radio-button value="CREATE"> CREATE </md-radio-button>
+</md-radio-group>
+<section ng-if="userAction == 'CREATE'" class="action-wrap" id="create">
+    <form name="createUser" ng-submit="newUserSubmit(createUser)" validate role="form" id="createUser">
+        <md-content md-theme="default">
+            <h4 class="form-title"> CREATE A NEW USER</h4>
+            <div class="col-sm-6 npLR">
+                <md-input-container class="md-icon-float">
+                    <label>First Name</label>
+                    <md-icon class="material-icons">label</md-icon>
+                    <input data-ng-model="newUser.First_Name" name="First_Name" type="text" required>
+                </md-input-container>
+                <md-input-container class="md-icon-float">
+                    <label>Last Name</label>
+                    <md-icon class="material-icons">label_outline</md-icon>
+                    <input data-ng-model="newUser.Last_Name" name="Last_Name" type="text">
+                </md-input-container>
+            </div>
+            <div class="col-sm-6 npLR">
+                <md-input-container class="md-icon-float">
+                    <!-- Use floating label instead of placehoasdlder -->
+                    <label>Password</label>
+                    <md-icon class="material-icons">
+                    &#xE0DA;</md-icon>
+                    <input data-ng-model="newUser.Password" name="Password" type="number" required>
+                </md-input-container>
+            </div>
+
+            <div class="col-sm-6 npLR">
+                <div class="selectSetter">
+                    <label class="icon">
+                        <i class="material-icons">assignment_ind</i>
+                    </label>
+                    <select name="newUserRole" ng-model="newUserRole">
+                        <option value="" selected hidden class="hide" />
+                        <option ng-repeat="role in roleIDs" ng-value="role.Role_ID" ng-select="role.Role_ID = 2">{{role.Role_Name}}</option>
+                    </select>
+                    <hr/>
+                </div>
+            </div>
+
+            
+          <!--  <div class="col-sm-12 npLR">
+                <div class="selectSetter">
+                    <label class="icon-img">
+                        <img src="./img/placeholder_thumb.png"/>
+                    </label>
+                    <select name="role">
+                        <option value="Admin">Admin</option>
+                        <option value="Normal">Normal</option>
+                    </select>
+                    <hr/>
+                </div>
+            </div> -->
+
+        </md-content>
+
+        <div class="actionBtn--wrap">
+            <md-button class="md-raised formBtn" type="button" ng-click="createUserReset()">
+                <i class="material-icons md-18 menu-icon">clear</i>CANCEL
+            </md-button>
+            <md-button class="md-raised formBtn" type="submit">
+                <i class="material-icons md-18 menu-icon">done</i>CREATE
+            </md-button>
+        </div>
+    </form>
+</section>
+
+<!--=================================================================================
+=====================================================================================
+EDIT SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="userAction" class="actionBtn edit">
+    <md-radio-button value="EDIT"> EDIT </md-radio-button>
+</md-radio-group>
+<section ng-if="userAction == 'EDIT'" class="action-wrap" id="edit">
+    <form name="editUserForm" ng-submit="editUserSubmit(editUserForm)" validate role="form">
+        <md-content md-theme="default">
+            <h4 class="form-title">SELECT USER TO EDIT</h4>
+            <article ng-if="!userToEdit" class="clearfix list">
+                <md-button ng-repeat="user in allStaff" ng-click="userSelectedToEdit(user)" class="col-sma-12">
+                    #{{user.Staff_ID}} -<b> {{user.First_Name}} {{user.Last_Name}}</b>
+                </md-button>
+            </article>
+
+            <article ng-if="userToEdit" class="clearfix">
+
+                <div class="col-sm-6 npLR">
+
+                    <md-input-container class="md-icon-float">
+                        <label>First Name</label>
+                        <md-icon class="material-icons">&#xE892;</md-icon>
+                        <input data-ng-model="userToEdit.First_Name" name="First_Name" type="text" required>
+                    </md-input-container>
+                </div>
+                <div class="col-sm-6 npLR">
+                    <md-input-container class="md-icon-float">
+                        <label>Last Name</label>
+                        <md-icon class="material-icons">&#xE893;</md-icon>
+                        <input data-ng-model="userToEdit.Last_Name" name="Last_Name" type="text">
+                    </md-input-container>
+
+                </div>
+
+                <!--<div class="col-sm-6 npLR">
+
+                    <div class="selectSet">
+                        <md-input-container >
+                            <md-select ng-model="roleIDs.Role_ID" placeholder="User level : {{userToEdit.Role_Name}}" >
+                                <md-option ng-value="userToEdit.Role_ID"  ng-click="editSetUserRole(role)" ng-repeat="role in roleIDs">{{role.Role_ID}} {{role.Role_Name}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-icon class="material-icons">lock</md-icon>
+                    </div>
+
+                </div>-->
+                
+                <div class="col-sm-6 npLR">
+                    <div class="selectSetter">
+                        <label class="icon">
+                            <i class="material-icons">assignment_ind</i>
+                        </label>
+
+                        <select name="editUserRole" ng-model="editUserRole">
+                            <option value="" selected hidden class="hide" />
+                            <option ng-repeat="role in roleIDs" ng-value="role.Role_ID" ng-select="role.Role_ID = userToEdit.Role_ID">{{role.Role_Name}}</option>
+                        </select>
+                        <hr/>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 npLR">
+                    <md-input-container class="md-icon-float">
+                        <!-- Use floating label instead of placehoasdlder -->
+                        <label>Access Code</label>
+                        <md-icon class="material-icons">vpn_key</md-icon>
+                        <input data-ng-model="userToEdit.Password" name="Password" type="number" required>
+                    </md-input-container>
+                </div>
+
+            </article>
+        </md-content>
+        <div class="actionBtn--wrap">
+            <md-button class="md-raised formBtn" type="button" ng-click="editUserReset()">
+                <i class="material-icons md-18 menu-icon">clear</i>CANCEL
+            </md-button>
+            <md-button class="md-raised formBtn" type="submit">
+                <i class="material-icons md-18 menu-icon">done</i>SAVE
+            </md-button>
+        </div>
+    </form>
+</section>
+
+<!--=================================================================================
+=====================================================================================
+REMOVE SECTION
+==================================================================================-->
+
+<md-radio-group ng-model="userAction" class="actionBtn remove">
+    <md-radio-button value="REMOVE"> REMOVE </md-radio-button>
+</md-radio-group>
+
+<section ng-if="userAction == 'REMOVE'" class="action-wrap" id="remove">
+    <form name="removeUserForm" ng-submit="removeUserSubmit(removeUserForm)" validate role="form">
+        <md-content md-theme="default">
+            <div class="col-sm-12 npLR">
+                <h2 class="title">Please Select a user to remove</h2>
+                <div class="removeUser clearfix" ng-repeat="user in allStaff">
+                    <md-checkbox ng-change='removeUserSet(user, state)' ng-model="state.done" name="{{user.User_Name}}" aria-label="Checkbox{{$index}}">
+                        <h2 class="name">
+                            <b>#{{user.First_Name}} {{user.Last_Name}} </b><!-- | Role ID -{{user.Role_ID}}-->
+                        </h2>
+                    </md-checkbox>
+                </div>
+            </div>
+        </md-content>
+        <div class="actionBtn--wrap">
+            <!-- <md-button class="md-raised formBtn" type="button" ng-click="removeUserReset()"> <i class="material-icons md-18 menu-icon">clear</i>CANCEL</md-button> -->
+            <md-button class="md-raised formBtn" type="submit">
+                <i class="material-icons md-18 menu-icon">done</i>Remove
+            </md-button>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest android:hardwareAccelerated="true" android:versionCode="1" android:versionName="1.0" android:windowSoftInputMode="adjustPan" package="com.telerik.Monarch" xmlns:android="http://schemas.android.com/apk/res/android">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true" />
+    <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/display_name">
+        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/display_name" android:launchMode="singleTop" android:name=".MainActivity" android:screenOrientation="sensor" android:theme="@android:style/Theme.Black.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <provider android:authorities="${applicationId}.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths" />
+        </provider>
+        <provider android:authorities="com.telerik.Monarch.jsHybugger" android:enabled="true" android:exported="false" android:name="org.jshybugger.DebugContentProvider">
+            <meta-data android:name="debugPort" android:value="8888" />
+            <meta-data android:name="releaseBuildDebugging" android:value="true" />
+            <meta-data android:name="excludeFiles" android:value="*.min.js,*/cordova.js" />
+            <meta-data android:name="excludeHosts" android:value="*.google*.com,*.twitter.com,*.gstatic.com" />
+            <meta-data android:name="mimeTypesHtml" android:value=".html" />
+            <meta-data android:name="mimeTypesJavascript" android:value=".js" />
+            <meta-data android:name="proxyEnabled" android:value="false" />
+            <meta-data android:name="proxyPort" android:value="8080" />
+            <meta-data android:name="upstreamProxyEnabled" android:value="false" />
+            <meta-data android:name="upstreamProxyHost" android:value="192.168.178.1" />
+            <meta-data android:name="upstreamProxyPort" android:value="8080" />
+        </provider>
+    </application>
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="21" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+</manifest>

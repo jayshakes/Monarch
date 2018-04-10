@@ -1,0 +1,271 @@
+//====================================================
+// Import Variables.less
+@import "variables.less";
+// ====================================================
+
+
+
+/* ====================================================
+MENU HEAD
+======================================================*/
+
+
+#appMenu {
+    position: fixed !important;
+  background-color: #17baa3;
+  min-height: 110px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  top: 0px;
+  z-index: 50;
+    color: #fff;
+
+        #menu-head{
+        padding: 0px 22px;
+          width: 100%;
+  display: block;
+  float: left;
+  height: 45px;
+    .nav-left {
+        text-align: left;
+    }
+    .nav-center {
+        text-align: center;
+    }
+    .nav-right {
+        text-align: right;
+    }}
+}
+
+.app-home {
+    display: inline-block;
+    color: #fff;
+}
+
+.menu-btn {
+    height: 50px;
+    margin: 0px;
+      margin-left: -22px;
+  padding-left: 15px;
+}
+
+.menu-btn i {
+    color: #fff;
+    padding: 0px;
+    margin: 0px;
+    float: left;
+    height: 40px;
+    line-height: 36px;
+}
+
+.menu-btn h1 {
+    display: inline-block;
+    color: #fff;
+    margin: 0px;
+    font-size: 18px;
+    height: 36px;
+    line-height: 36px;
+    font-weight: normal;
+    padding-left: 5px;
+}
+.menu-btn.logo{  margin-right: -22px;}
+#logo {
+    height: 35px;
+    float: right;
+    padding: 5px 10px;
+    margin-top: -4px;
+
+  padding-right: 15px;
+}
+
+.topLvlBtn, .topLvlBtn.md-button.md-raised{
+    color: #1F8578;
+    padding-right: 10px;
+    padding-left: 10px;
+    i{
+        position: relative;
+        top: 5px;
+        font-size: 20px;
+    }
+}
+
+
+#hvrBtn{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: 90;
+    
+    .md-padding.md-default-theme{
+        background-color: transparent;
+    }
+    .material-icons.md-36{
+        margin-top: 10px;
+    }
+
+    .md-mini i{
+        margin-top: 10px;
+    } 
+    .paymentBtn{
+          height: 70px;
+          width: 70px;
+        i{
+            position:relative;
+            top:5px;
+        }
+    }
+}
+
+/* ====================================================
+MAIN SPINNER/LOADER 
+======================================================*/
+#mainloader{
+       position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    z-index: 200;
+    text-align: center;
+    background-color: @brand-primary;
+    top: 0px; 
+    .loader-wrap{
+            top: 40%;
+        position: absolute; 
+            margin-left: -35px;
+    }
+
+    
+}
+
+ 
+/* ====================================================
+MENU CONTENT
+======================================================*/
+
+#menu-content {
+	
+	.left-wrap,.mid-wrap,.right-wrap{
+        padding:5px 15px;
+        position: relative;
+        button{ 
+                margin-top: 0px;
+    margin-left: -5px;
+        }
+    }
+
+    #homeLink{
+
+    display: inline-block;
+  float: left;
+  color: white;
+  min-width: 50px;
+  margin-top: 15px;
+
+
+    }
+
+
+    #full-total {
+    	  margin-top: 7px;
+        .currency, .total, .title {
+            display: inline-block;
+            font-family: @robo-bold;
+              height: 36px;
+
+  float: left;
+  margin: 0px;
+  padding: 0px;
+
+        }
+        .currency {
+            padding: 7px 5px 0 5px;
+        }
+        .total {
+            font-family: @robo-light;
+              line-height: 32px;
+        }
+        .title {
+            font-size: 16px;
+            padding: 5px 5px 0 5px;
+        }
+    }
+
+    #payBtn{
+        float: right;
+    	i{padding:5px 0px;float: right;}
+    }
+}
+
+/*****************************/
+/* Shape */
+/*****************************/
+
+.tranTotal{
+    .tab{
+        position: fixed;
+        top: 65px;
+          left: 50%;
+          z-index: 20000;
+        svg {
+            float: left;
+            margin: 0;
+            width: 80px;
+            height: 100%;
+            padding:0px;
+            fill: red;
+        }
+        #tabRight{
+            position:relative;
+            left:-5px;
+        }
+        #tabLeft{
+            position:relative;
+            right:-5px;
+        }
+        #payAmount{
+            float: left;
+            top: 0px;
+            height: 50px;
+            left: 0px;
+            color: #000;
+            padding: 2px 5px 2px 0px;
+            z-index: 5;
+            position: relative;
+            background-color: #fff;
+            #pay-currency{
+                float: left;
+                padding: 15px 15px 10px 0px;
+                margin-left: -20px;
+                font-family: @robo-bold;
+            }
+            #pay-total{
+                float: left;
+                font-size: 32px;
+                margin-left: -10px;
+                font-family: @robo-light;
+            }
+            #pay-title{
+                padding: 15px 0px 10px 5px;
+                float: left;
+                font-family: @robo-bold;
+                  position: absolute;
+            }
+            #pay-count{
+                position: absolute;
+                border-radius: 4px;
+                background-color: black;
+                text-align: center;
+                padding: 1px 4px 0px 4px;
+                height: 22px;
+                top: -10px;
+                font-size: 14px;
+                color: white;
+                font-family: @robo-light;
+            }
+        }
+
+    }
+
+}
