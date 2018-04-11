@@ -1,168 +1,165 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version='1.0' encoding='utf-8'?>
 <widget id="com.telerik.Monarch" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Monarch</name>
-  <description>
+    <name>Monarch</name>
+    <description>
  Monarch 
 </description>
-  <author email="" href="">
-  
-</author>
-  <content src="index.html"/>
-  <access origin="*"/>
-  <allow-intent href="http://*/*"/>
-  <allow-intent href="https://*/*"/>
-  <allow-intent href="tel:*"/>
-  <allow-intent href="sms:*"/>
-  <allow-intent href="mailto:*"/>
-  <allow-intent href="geo:*"/>
-  <platform name="android">
-    <allow-intent href="market:*"/>
-    <preference name="splashscreen" value="splashscreen"/>
-    <preference name="splashScreenDelay" value="10000"/>
-  </platform>
-  <platform name="ios">
-    <allow-intent href="itms:*"/>
-    <allow-intent href="itms-apps:*"/>
-  </platform>
-  <plugin name="cordova-plugin-battery-status"/>
-
-  <plugin name="cordova-plugin-camera">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-console">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-contacts" >
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-device">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-device-motion">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-device-orientation">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-dialogs">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-file">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-file-transfer">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-geolocation">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-globalization">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-inappbrowser">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-media">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-media-capture">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-network-information">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-splashscreen">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-statusbar">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-vibration">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-whitelist">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="cordova-plugin-x-socialsharing">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-
-  <!-- <plugin name="com.tlantic.plugins.socket">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
-  <plugin name="com.telerik.cordovaPlatformSpecificFiles">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin> -->
-  <plugin name="org.jshybugger.cordova">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
-    <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
-    <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
-    <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
-  </plugin>
+    <author email="" href="">
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <preference name="splashscreen" value="splashscreen" />
+        <preference name="splashScreenDelay" value="10000" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <plugin name="cordova-plugin-battery-status" />
+    <plugin name="cordova-plugin-camera">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-console">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-contacts">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-device">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-device-motion">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-device-orientation">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-dialogs">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-file">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-file-transfer">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-geolocation">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-globalization">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-inappbrowser">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-media">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-media-capture">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-network-information">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-splashscreen">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-statusbar">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-vibration">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-whitelist">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-x-socialsharing">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <!-- <plugin name="com.tlantic.plugins.socket" source="./plugins/cdv-socket-plugin-master/www/socket.js">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="com.telerik.cordovaPlatformSpecificFiles">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin> -->
+    <plugin name="org.jshybugger.cordova" spec="https://github.com/jsHybugger/cordova-plugin-jshybugger.git">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+    </plugin>
 </widget>
