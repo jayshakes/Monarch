@@ -143,7 +143,7 @@
     <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" "/>
     <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
   </plugin>
-  <plugin name="com.tlantic.plugins.socket" source="./plugins/cdv-socket-plugin-master/plugin.xml" >
+  <plugin name="com.tlantic.plugins.socket" source="https://github.com/Tlantic/cdv-socket-plugin/" >
     <variable name="CAMERA_USAGE_DESCRIPTION" value=" "/>
     <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" "/>
     <variable name="CONTACTS_USAGE_DESCRIPTION" value=" "/>
