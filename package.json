@@ -20,7 +20,8 @@
                 "CONTACTS_USAGE_DESCRIPTION": " ",
                 "GEOLOCATION_USAGE_DESCRIPTION": " ",
                 "MICROPHONE_USAGE_DESCRIPTION": " "
-            }
+            },
+            "cordova-plugin-file-transfer": {}
         }
     }
 }

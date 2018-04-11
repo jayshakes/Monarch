@@ -149,17 +149,11 @@
   },
   "cordova-plugin-file-transfer": {
     "source": {
-      "type": "local",
-      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-file-transfer"
+      "type": "registry",
+      "id": "cordova-plugin-file-transfer"
     },
     "is_top_level": true,
-    "variables": {
-      "CAMERA_USAGE_DESCRIPTION": " ",
-      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-      "CONTACTS_USAGE_DESCRIPTION": " ",
-      "GEOLOCATION_USAGE_DESCRIPTION": " ",
-      "MICROPHONE_USAGE_DESCRIPTION": " "
-    }
+    "variables": {}
   },
   "cordova-plugin-geolocation": {
     "source": {
