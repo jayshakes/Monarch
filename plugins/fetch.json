@@ -1,346 +1,340 @@
 {
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-whitelist"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-whitelist"
     },
-    "cordova-plugin-battery-status": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-battery-status"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-camera": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-camera"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-compat": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-compat"
-        },
-        "is_top_level": false,
-        "variables": {}
-    },
-    "cordova-plugin-console": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-console"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-contacts": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-contacts"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-device": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-device"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-device-motion": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-device-motion"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-device-orientation": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-device-orientation"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-dialogs": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-dialogs"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-file": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-file"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-file-transfer": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-file-transfer"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-geolocation": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-geolocation"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-globalization": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-globalization"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-inappbrowser": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-inappbrowser"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-media": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-media"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-media-capture": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-media-capture"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-network-information": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-network-information"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-splashscreen": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-splashscreen"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-statusbar": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-statusbar"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-vibration": {
-        "source": {
-            "type": "local",
-            "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-vibration"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "cordova-plugin-x-socialsharing": {
-        "source": {
-            "type": "local",
-            "path": "/tmp/builds/K3SD44AfMHiS9AgxCi/app/Plugins/SocialSharing-PhoneGap-Plugin-master"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "com.tlantic.plugins.socket": {
-        "source": {
-            "type": "local",
-            "path": "/tmp/builds/K3SD44AfMHiS9AgxCi/app/Plugins/cdv-socket-plugin-master"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "com.telerik.cordovaPlatformSpecificFiles": {
-        "source": {
-            "type": "local",
-            "path": "/tmp/builds/K3SD44AfMHiS9AgxCi/app/Plugins/cordova-platform-specific-files"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
-    },
-    "org.jshybugger.cordova": {
-        "source": {
-            "type": "local",
-            "path": "/tmp/builds/K3SD44AfMHiS9AgxCi/app/Plugins/jshybugger-plugin-4.5.9"
-        },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "CONTACTS_USAGE_DESCRIPTION": " ",
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " "
-        }
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
     }
+  },
+  "cordova-plugin-battery-status": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-battery-status"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-camera": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-camera"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-compat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-compat"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-console": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-console"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-contacts": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-contacts"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-device"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-device-motion": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-device-motion"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-device-orientation": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-device-orientation"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-dialogs": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-dialogs"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-file": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-file"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-file-transfer": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-file-transfer"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-geolocation": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-geolocation"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-globalization": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-globalization"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-inappbrowser": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-inappbrowser"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-media": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-media"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-media-capture": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-media-capture"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-network-information": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-network-information"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-splashscreen": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-splashscreen"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-statusbar": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-statusbar"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-vibration": {
+    "source": {
+      "type": "local",
+      "path": "/Users/builder/BpcTooling/Cordova3/6.4.0/CorePlugins/cordova-plugin-vibration"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "cordova-plugin-x-socialsharing": {
+    "source": {
+      "type": "local",
+      "path": "/tmp/builds/K3SD44AfMHiS9AgxCi/app/Plugins/SocialSharing-PhoneGap-Plugin-master"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "com.tlantic.plugins.socket": {
+    "source": {
+      "type": "local",
+      "path": "/tmp/builds/K3SD44AfMHiS9AgxCi/app/Plugins/cdv-socket-plugin-master"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "com.telerik.cordovaPlatformSpecificFiles": {
+    "source": {
+      "type": "local",
+      "path": "/tmp/builds/K3SD44AfMHiS9AgxCi/app/Plugins/cordova-platform-specific-files"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " "
+    }
+  },
+  "org.jshybugger.cordova": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/jsHybugger/cordova-plugin-jshybugger.git"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
 }
