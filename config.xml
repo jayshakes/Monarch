@@ -143,5 +143,5 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
         <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
     </plugin>
-    <plugin name="cordova-plugin-file-transfer" spec="~1.6.1" />
+    <plugin name="cordova-plugin-file-transfer" />
 </widget>
